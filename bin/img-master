@@ -1,0 +1,30 @@
+#!/usr/bin/env node
+
+const chalk = require("chalk");
+const commander = require("commander");
+
+const packages = require("../package");
+const utils = require("../utils");
+const group = require("../lib/group");
+const process = require("../lib/process");
+
+// Version && Usage
+commander
+	.version(packages.version)
+	.usage(chalk.green("<command> [option]"));
+
+// Group
+commander
+	.command("group")
+	.alias("g")
+	.description(chalk.blue("Image Grouping"))
+	.action(group);
+
+// Process
+commander
+	.command("process")
+	.alias("p")
+	.description(chalk.blue("Image Processing"))
+	.action(process);
+
+utils.help(commander);

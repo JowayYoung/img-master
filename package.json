@@ -1,0 +1,63 @@
+{
+	"name": "img-master",
+	"version": "1.0.0",
+	"description": "image handler",
+	"main": "index.js",
+	"license": "MIT",
+	"author": {
+		"name": "Joway Young",
+		"phone": "18819249731",
+		"email": "young.joway@aliyun.com"
+	},
+	"engines": {
+		"node": ">= 8.0.0",
+		"npm": ">= 5.0.0"
+	},
+	"scripts": {
+		"remove": "rimraf node_modules"
+	},
+	"bin": {
+		"img-master": "./bin/img-master"
+	},
+	"dependencies": {
+		"chalk": "^2.4.1",
+		"commander": "^2.15.1",
+		"gm": "^1.23.1",
+		"image-size": "^0.6.3",
+		"inquirer": "^6.0.0",
+		"is-image": "^2.0.0",
+		"recursive-copy": "^2.0.9",
+		"rimraf": "^2.6.2"
+	},
+	"eslintConfig": {
+		"env": {
+			"browser": true,
+			"commonjs": true,
+			"es6": true,
+			"node": true
+		},
+		"extends": "eslint:recommended",
+		"parserOptions": {
+			"ecmaVersion": 9,
+			"sourceType": "module"
+		},
+		"root": true,
+		"rules": {
+			"indent": [
+				"error",
+				"tab"
+			],
+			"no-console": [
+				"off"
+			],
+			"quotes": [
+				"error",
+				"double"
+			],
+			"semi": [
+				"error",
+				"always"
+			]
+		}
+	}
+}
