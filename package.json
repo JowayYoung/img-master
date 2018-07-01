@@ -21,7 +21,7 @@
 	},
 	"dependencies": {
 		"chalk": "^2.4.1",
-		"commander": "^2.15.1",
+		"commander": "^2.16.0",
 		"gm": "^1.23.1",
 		"image-size": "^0.6.3",
 		"inquirer": "^6.0.0",
