@@ -6,7 +6,7 @@ const commander = require("commander");
 const packages = require("../package");
 const utils = require("../utils");
 const group = require("../lib/group");
-const process = require("../lib/process");
+const handle = require("../lib/handle");
 
 // Version && Usage
 commander
@@ -20,11 +20,11 @@ commander
 	.description(chalk.blue("Image Grouping"))
 	.action(group);
 
-// Process
+// Handle
 commander
-	.command("process")
-	.alias("p")
-	.description(chalk.blue("Image Processing"))
-	.action(process);
+	.command("handle")
+	.alias("h")
+	.description(chalk.blue("Image Handling"))
+	.action(handle);
 
 utils.help(commander);
