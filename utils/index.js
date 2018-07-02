@@ -21,11 +21,17 @@ function getFileName(dir) {
 }
 
 function authType(val, type) {
-	if (type === "number") {
+	if (type === "resize") {
 		const flag = val
 			.split(" ")
-			.every(v => typeof (+v) === "number" && (+v) % 1 === 0);
-		return flag ? true : chalk.white.bgRed("Only inputting integers");
+			.every(v => typeof +v === "number" && +v % 1 === 0);
+		return flag ? true : chalk.white.bgRed("Only inputting integer");
+	}
+	if (type === "crop") {
+		const _val = val.split(" ");
+		const flag = _val.every(v => typeof +v === "number" && +v % 1 === 0);
+		const size = +_val[0] && +_val[1];
+		return flag && size ? true : chalk.white.bgRed("Only inputting positive integer");
 	}
 }
 
