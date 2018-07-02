@@ -6,12 +6,18 @@ const rimraf = require("rimraf");
 
 const readDir = promisify(fs.readdir);
 const readStat = promisify(fs.stat);
+const removeDir = promisify(rimraf);
 
 function help(commander) {
 	commander.parse(process.argv);
 	if (!commander.args.length) {
 		commander.help();
 	}
+}
+
+function getFileName(dir) {
+	const target = dir.split("/");
+	return target[target.length - 1];
 }
 
 async function mapFile({ currPath = process.cwd() + "/src", sucMsg, isFileCb }) {
@@ -34,12 +40,13 @@ async function mapFile({ currPath = process.cwd() + "/src", sucMsg, isFileCb }) 
 }
 
 async function removeDist() {
-	await promisify(rimraf)(process.cwd() + "/dist");
+	await removeDir(process.cwd() + "/dist");
 	console.log(chalk.white.bgGreen("\nThe output directory is deleted successfully\n"));
 }
 
 module.exports = {
 	help,
+	getFileName,
 	mapFile,
 	removeDist
 };
