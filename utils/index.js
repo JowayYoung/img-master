@@ -20,6 +20,15 @@ function getFileName(dir) {
 	return target[target.length - 1];
 }
 
+function authType(val, type) {
+	if (type === "number") {
+		const flag = val
+			.split(" ")
+			.every(v => typeof (+v) === "number" && (+v) % 1 === 0);
+		return flag ? true : chalk.white.bgRed("Only inputting integers");
+	}
+}
+
 async function mapFile({ currPath = process.cwd() + "/src", sucMsg, isFileCb }) {
 	const files = await readDir(currPath);
 	if (files.constructor !== Array || !files.length) {
@@ -47,6 +56,7 @@ async function removeDist() {
 module.exports = {
 	help,
 	getFileName,
+	authType,
 	mapFile,
 	removeDist
 };
