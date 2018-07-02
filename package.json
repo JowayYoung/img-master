@@ -20,14 +20,22 @@
 		"img-master": "./bin/img-master"
 	},
 	"dependencies": {
-		"chalk": "^2.4.1",
-		"commander": "^2.16.0",
-		"gm": "^1.23.1",
-		"image-size": "^0.6.3",
-		"inquirer": "^6.0.0",
-		"is-image": "^2.0.0",
-		"recursive-copy": "^2.0.9",
-		"rimraf": "^2.6.2"
+		"chalk": "2.4.1",
+		"commander": "2.16.0",
+		"gm": "1.23.1",
+		"image-size": "0.6.3",
+		"inquirer": "6.0.0",
+		"is-image": "2.0.0",
+		"recursive-copy": "2.0.9",
+		"rimraf": "2.6.2"
+	},
+	"devDependencies": {
+		"eslint": "5.0.1",
+		"eslint-config-standard": "11.0.0",
+		"eslint-plugin-import": "2.13.0",
+		"eslint-plugin-node": "6.0.1",
+		"eslint-plugin-promise": "3.8.0",
+		"eslint-plugin-standard": "3.1.0"
 	},
 	"eslintConfig": {
 		"env": {
@@ -36,19 +44,44 @@
 			"es6": true,
 			"node": true
 		},
-		"extends": "eslint:recommended",
+		"extends": "standard",
 		"parserOptions": {
 			"ecmaVersion": 9,
 			"sourceType": "module"
 		},
 		"root": true,
 		"rules": {
+			"eol-last": [
+				"error",
+				"never"
+			],
+			"handle-callback-err": [
+				"error",
+				"error"
+			],
 			"indent": [
 				"error",
 				"tab"
 			],
 			"no-console": [
 				"off"
+			],
+			"no-new": [
+				"off"
+			],
+			"no-tabs": [
+				"off"
+			],
+			"no-unreachable": [
+				"off"
+			],
+			"object-curly-spacing": [
+				"error",
+				"always"
+			],
+			"operator-linebreak": [
+				"error",
+				"before"
 			],
 			"quotes": [
 				"error",
@@ -57,6 +90,10 @@
 			"semi": [
 				"error",
 				"always"
+			],
+			"space-before-function-paren": [
+				"error",
+				"never"
 			]
 		}
 	}
