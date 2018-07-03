@@ -26,7 +26,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/JowayYoung/img-master"
+		"url": "https://github.com/JowayYoung/img-master.git"
 	},
 	"dependencies": {
 		"bluebird": "3.5.1",

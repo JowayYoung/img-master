@@ -8,8 +8,8 @@ At present, the function of `img-master` is not perfect, and it will continue to
 
 ### Install
 
-- `npm install -g img-master`
-- `yarn add img-master`
+- First download and install [GraphicsMagick](http://www.graphicsmagick.org) or [ImageMagick](http://www.imagemagick.org).
+- Then either use npm or yarn `npm install -g img-master` `yarn add img-master`
 
 ### Usage
 
