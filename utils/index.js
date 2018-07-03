@@ -8,11 +8,30 @@ const readDir = promisify(fs.readdir);
 const readStat = promisify(fs.stat);
 const removeDir = promisify(rimraf);
 
-function help(commander) {
-	commander.parse(process.argv);
-	if (!commander.args.length) {
-		commander.help();
+function authType(val, type) {
+	const target = formatAnswer(val);
+	if (!target) {
+		return chalk.white.bgRed("Only input number and comma");
 	}
+	if (type === "resize") {
+		return true;
+	}
+	if (type === "crop") {
+		const size = target[0] && target[1];
+		return size ? true : chalk.white.bgRed("Width and height can only input positive number");
+	}
+}
+
+function formatAnswer(val) {
+	const reg = new RegExp(/^[0-9,]+$/);
+	const flag = reg.test(val);
+	return flag
+		? val
+			.replace(/\s+/g, "") // 清除所有空格
+			.replace(/^,*|,*$/g, "") // 清除前后逗号
+			.split(",") // 以逗号分割
+			.map(v => +v) // 转换成数字
+		: false;
 }
 
 function getFileName(dir) {
@@ -20,25 +39,17 @@ function getFileName(dir) {
 	return target[target.length - 1];
 }
 
-function authType(val, type) {
-	if (type === "resize") {
-		const flag = val
-			.split(" ")
-			.every(v => typeof +v === "number" && +v % 1 === 0);
-		return flag ? true : chalk.white.bgRed("Only inputting integer");
-	}
-	if (type === "crop") {
-		const _val = val.split(" ");
-		const flag = _val.every(v => typeof +v === "number" && +v % 1 === 0);
-		const size = +_val[0] && +_val[1];
-		return flag && size ? true : chalk.white.bgRed("Only inputting positive integer");
+function help(commander) {
+	commander.parse(process.argv);
+	if (!commander.args.length) {
+		commander.help();
 	}
 }
 
 async function mapFile({ currPath = process.cwd() + "/src", sucMsg, isFileCb }) {
 	const files = await readDir(currPath);
 	if (files.constructor !== Array || !files.length) {
-		console.log(chalk.white.bgRed("There is no file in the current directory\n"));
+		console.log(chalk.white.bgRed("The current directory is empty\n"));
 		return false;
 	}
 	for (let file of files) {
@@ -56,13 +67,14 @@ async function mapFile({ currPath = process.cwd() + "/src", sucMsg, isFileCb }) 
 
 async function removeDist() {
 	await removeDir(process.cwd() + "/dist");
-	console.log(chalk.white.bgGreen("\nThe output directory is deleted successfully\n"));
+	console.log(chalk.white.bgGreen("\nThe output directory was cleared successfully\n"));
 }
 
 module.exports = {
-	help,
-	getFileName,
 	authType,
+	formatAnswer,
+	getFileName,
+	help,
 	mapFile,
 	removeDist
 };

@@ -11,20 +11,20 @@ const handle = require("../lib/handle");
 // Version && Usage
 commander
 	.version(packages.version)
-	.usage(chalk.green("<command> [option]"));
+	.usage(chalk.yellowBright("<command> [option]"));
 
 // Group
 commander
 	.command("group")
 	.alias("g")
-	.description(chalk.blue("Image Grouping"))
+	.description(chalk.blueBright("Image Grouping"))
 	.action(group);
 
 // Handle
 commander
 	.command("handle")
 	.alias("h")
-	.description(chalk.blue("Image Handling"))
+	.description(chalk.blueBright("Image Handling"))
 	.action(handle);
 
 utils.help(commander);

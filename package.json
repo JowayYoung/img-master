@@ -20,6 +20,7 @@
 		"img-master": "./bin/img-master"
 	},
 	"dependencies": {
+		"bluebird": "3.5.1",
 		"chalk": "2.4.1",
 		"commander": "2.16.0",
 		"gm": "1.23.1",
