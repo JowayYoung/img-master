@@ -22,8 +22,8 @@ Command | Alias | Description
 
 `img-master g` Grouping according to size or type
 
-- Size: Choose answer **size**
-- Type: Choose answer **type**
+- Size : Choose answer **size**
+- Type : Choose answer **type**
 
 ### Image Handling
 
