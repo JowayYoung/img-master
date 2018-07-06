@@ -9,7 +9,7 @@ At present, the function of `img-master` is not perfect, and it will continue to
 ### Install
 
 - First download and install [GraphicsMagick](http://www.graphicsmagick.org) or [ImageMagick](http://www.imagemagick.org).
-- Then either use npm or yarn `npm install -g img-master` `yarn add img-master`
+- Then either use npm `npm install -g img-master`
 
 ### Usage
 
@@ -30,8 +30,12 @@ Command | Alias | Description
 `img-master h` Selective batch processing
 
 - Resize
-	- *The width is fixed, the height is adaptive* : Input answer **100**
-	- *The width is adaptive, the height is fixed* : Input answer **0,100**
-	- *Custom width and height* : Input answer **100,200**
+	- *Input width(fixed) and height(adaptive)* : **100**
+	- *Input width(adaptive) and height(fixed)* : **0,100**
+	- *Input size* : **100,200**
 - Crop
-	- *Custom clipping area* : Input answer **100,200,10,20**
+	- *Input clipping area* : **100,200,10,20**
+- Format
+	- *Select extension* : **png** or **jpg**
+- Compress
+	- *Input quality* : **60** (0 < quality <= 100)

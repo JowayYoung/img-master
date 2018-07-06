@@ -20,6 +20,10 @@ function authType(val, type) {
 		const size = target[0] && target[1];
 		return size ? true : chalk.white.bgRed("Width and height can only input positive number");
 	}
+	if (type === "compress") {
+		const quality = target[0];
+		return quality > 0 && quality <= 100 ? true : chalk.white.bgRed("Quality can only input positive number between 0 and 100");
+	}
 }
 
 function formatAnswer(val) {
