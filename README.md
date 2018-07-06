@@ -8,8 +8,13 @@ At present, the function of `img-master` is not perfect, and it will continue to
 
 ### Install
 
-- First download and install [GraphicsMagick](http://www.graphicsmagick.org) or [ImageMagick](http://www.imagemagick.org).
-- Then either use npm `npm install -g img-master`
+- First downloading and installing [GraphicsMagick](http://www.graphicsmagick.org) or [ImageMagick](http://www.imagemagick.org).
+- Then using npm for installation `npm install -g img-master`.
+
+### Ready
+
+- First putting all the pictures in the folder(**src**), and it can include the other folder.
+- Then executing the command, and the result will be exported to the folder(**dist**).
 
 ### Usage
 
@@ -20,14 +25,14 @@ Command | Alias | Description
 
 ### Image Grouping
 
-`img-master g` Grouping according to size or type
+`img-master g` Grouping according to size or type.
 
 - Size : Choose answer **size**
 - Type : Choose answer **type**
 
 ### Image Handling
 
-`img-master h` Selective batch processing
+`img-master h` Selecting batch processing.
 
 - Resize
 	- *Input width(fixed) and height(adaptive)* : **100**
