@@ -1,32 +1,25 @@
 {
 	"name": "img-master",
 	"version": "1.0.5",
-	"description": "image master",
-	"keywords": [
-		"image",
-		"group",
-		"handle"
-	],
-	"main": "bin/img-master",
+	"description": "image-master",
+	"keywords": ["image", "group", "handle"],
+	"homepage": "https://github.com/JowayYoung",
 	"license": "MIT",
+	"main": "bin/img-master",
 	"author": {
 		"name": "Joway Young",
 		"phone": "18819249731",
 		"email": "young.joway@aliyun.com"
 	},
-	"engines": {
-		"node": ">= 8.0.0",
-		"npm": ">= 5.0.0"
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/JowayYoung/img-master.git"
 	},
 	"bin": {
 		"img-master": "bin/img-master"
 	},
 	"scripts": {
 		"remove": "rimraf node_modules"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/JowayYoung/img-master.git"
 	},
 	"dependencies": {
 		"bluebird": "3.5.1",
@@ -46,6 +39,10 @@
 		"eslint-plugin-node": "6.0.1",
 		"eslint-plugin-promise": "3.8.0",
 		"eslint-plugin-standard": "3.1.0"
+	},
+	"engines": {
+		"node": ">= 8.0.0",
+		"npm": ">= 5.0.0"
 	},
 	"eslintConfig": {
 		"env": {
