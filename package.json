@@ -2,7 +2,11 @@
 	"name": "img-master",
 	"version": "1.0.5",
 	"description": "image-master",
-	"keywords": ["image", "group", "handle"],
+	"keywords": [
+		"image",
+		"group",
+		"handle"
+	],
 	"homepage": "https://github.com/JowayYoung",
 	"license": "MIT",
 	"main": "bin/img-master",
