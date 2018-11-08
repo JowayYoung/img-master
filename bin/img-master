@@ -1,30 +1,28 @@
 #!/usr/bin/env node
 
-const chalk = require("chalk");
-const commander = require("commander");
+const Chalk = require("chalk");
+const Commander = require("commander");
 
-const packages = require("../package");
-const utils = require("../utils");
-const group = require("../lib/group");
-const handle = require("../lib/handle");
+const Package = require("../package");
+const Utils = require("../utils");
+const Group = require("../lib/group");
+const Handle = require("../lib/handle");
 
 // Version && Usage
-commander
-	.version(packages.version)
-	.usage(chalk.yellowBright("<command> [option]"));
-
+Commander
+	.version(Package.version)
+	.usage(Chalk.yellowBright("<command> [option]"));
 // Group
-commander
+Commander
 	.command("group")
 	.alias("g")
-	.description(chalk.blueBright("Image Grouping"))
-	.action(group);
-
+	.description(Chalk.blueBright("Image Grouping"))
+	.action(Group);
 // Handle
-commander
+Commander
 	.command("handle")
 	.alias("h")
-	.description(chalk.blueBright("Image Handling"))
-	.action(handle);
-
-utils.help(commander);
+	.description(Chalk.blueBright("Image Handling"))
+	.action(Handle);
+// Help
+Utils.help(Commander);
