@@ -1,12 +1,12 @@
-const fs = require("fs");
-const promisify = require("util").promisify;
-const chalk = require("chalk");
-const isImage = require("is-image");
-const rimraf = require("rimraf");
+const Fs = require("fs");
+const Promisify = require("util").promisify;
+const Chalk = require("chalk");
+const IsImage = require("is-image");
+const Rimraf = require("rimraf");
 
-const readDir = promisify(fs.readdir);
-const readStat = promisify(fs.stat);
-const removeDir = promisify(rimraf);
+function asyncTo(promise) {
+	return promise.then(data => [null, data]).catch(err => [err]);
+}
 
 function formatAnswer(val) {
 	const reg = new RegExp(/^[0-9,]+$/);
@@ -33,48 +33,52 @@ function help(commander) {
 }
 
 async function mapFile({ currPath = process.cwd() + "/src", sucMsg, isFileCb }) {
+	const readDir = Promisify(Fs.readdir);
+	const readStat = Promisify(Fs.stat);
 	const files = await readDir(currPath);
 	if (files.constructor !== Array || !files.length) {
-		console.log(chalk.white.bgRed("The current directory is empty\n"));
+		console.log(Chalk.redBright("The current directory is empty\n"));
 		return false;
 	}
 	for (let file of files) {
 		const filePath = currPath + "/" + file;
 		const stat = await readStat(filePath);
-		if (stat.isFile() && isImage(filePath)) {
+		if (stat.isFile() && IsImage(filePath)) {
 			isFileCb && await isFileCb(filePath);
 		} else if (stat.isDirectory()) {
 			mapFile(filePath);
 		}
 	}
-	console.log(chalk.white.bgGreen("\n" + sucMsg + "\n"));
+	console.log(Chalk.greenBright("\n" + sucMsg + "\n"));
 	return true;
 }
 
 async function removeDist() {
+	const removeDir = Promisify(Rimraf);
 	await removeDir(process.cwd() + "/dist");
-	console.log(chalk.white.bgGreen("\nThe output directory was cleared successfully\n"));
+	console.log(Chalk.greenBright("\nThe output directory was cleared successfully\n"));
 }
 
 function validType(val, type) {
 	const target = formatAnswer(val);
 	if (!target) {
-		return chalk.white.bgRed("Only input number and comma");
+		return Chalk.white.redBright("Only input number and comma");
 	}
 	if (type === "resize") {
 		return true;
 	}
 	if (type === "crop") {
 		const size = target[0] && target[1];
-		return size ? true : chalk.white.bgRed("Width and height can only input positive number");
+		return size ? true : Chalk.redBright("Width and height can only input positive number");
 	}
 	if (type === "compress") {
 		const quality = target[0];
-		return quality > 0 && quality <= 100 ? true : chalk.white.bgRed("Quality can only input positive number between 0 and 100");
+		return quality > 0 && quality <= 100 ? true : Chalk.redBright("Quality can only input positive number between 0 and 100");
 	}
 }
 
 module.exports = {
+	asyncTo,
 	formatAnswer,
 	getFileName,
 	help,
