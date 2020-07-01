@@ -9,7 +9,7 @@
 [![coverage](https://img.shields.io/badge/coverage-100%25-09f.svg)](https://github.com/JowayYoung/img-master)
 [![license](https://img.shields.io/badge/license-MIT-09f.svg)](https://github.com/JowayYoung/img-master)
 
-> `img-master`是一个多进程无限制的图片压缩工具
+> `img-master`是一个多功能无限制的图片处理工具
 
 ### 安装
 
