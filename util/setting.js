@@ -1,3 +1,7 @@
+const Chalk = require("chalk");
+
+const { ACTION_TEXT } = require("../i18n");
+
 function AutoBin(fn, ...rest) {
 	const lib = require(`../lib/${fn}`);
 	lib(...rest);
@@ -20,7 +24,12 @@ function RandomHeader() {
 	};
 }
 
+function ShowTitle(type) {
+	console.log(Chalk.white.bgMagenta(`### ${ACTION_TEXT[type]} ###`));
+}
+
 module.exports = {
 	AutoBin,
-	RandomHeader
+	RandomHeader,
+	ShowTitle
 };
