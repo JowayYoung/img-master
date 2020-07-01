@@ -26,7 +26,7 @@ const COMPRESS_TEXT = {
 	compressReqFailed: (path, msg) => `${Figures.cross} 压缩[${Chalk.yellowBright(path)}]请求失败：${Chalk.redBright(msg)}`,
 	compressFailed: (path, msg) => `${Figures.cross} 压缩[${Chalk.yellowBright(path)}]失败：${Chalk.redBright(msg)}`,
 	downloadReqFailed: (path, msg) => `${Figures.cross} 下载[${Chalk.yellowBright(path)}]请求失败：${Chalk.redBright(msg)}`,
-	downloadSuccessed: (path, obj) => `${Figures.tick} 下载[${Chalk.yellowBright(path)}]成功：原始大小${Chalk.redBright(ByteSize(obj.input.size))}，压缩大小${Chalk.greenBright(ByteSize(obj.output.size))}，优化比例${Chalk.blueBright(RoundNum(obj.output.ratio, 2, true))}`
+	downloadSuccessed: (path, obj) => `${Figures.tick} 下载[${Chalk.yellowBright(path)}]成功：原始大小${Chalk.redBright(ByteSize(obj.input.size))}，压缩大小${Chalk.greenBright(ByteSize(obj.output.size))}，优化比例${Chalk.blueBright(RoundNum(1 - obj.output.ratio, 2, true))}`
 };
 
 const GROUP_TEXT = {
