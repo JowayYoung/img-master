@@ -1,0 +1,49 @@
+{
+	"name": "img-master",
+	"version": "0.0.1",
+	"description": "An image processing tool with multifunctional and unlimited",
+	"keywords": [
+		"img-master",
+		"tinyimg",
+		"tinyjpg",
+		"tinypng",
+		"tiny",
+		"image",
+		"img",
+		"jpg",
+		"png",
+		"multifunctional",
+		"unlimited",
+		"compress"
+	],
+	"author": {
+		"name": "Joway Young",
+		"phone": "18819249731",
+		"email": "young.joway@aliyun.com"
+	},
+	"homepage": "https://github.com/JowayYoung",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/JowayYoung/img-master"
+	},
+	"license": "MIT",
+	"bin": {
+		"img-master": "bin/index.js"
+	},
+	"scripts": {
+		"remove": "rimraf package-lock.json yarn.lock node_modules"
+	},
+	"dependencies": {
+		"chalk": "4.1.0",
+		"commander": "5.1.0",
+		"figures": "3.2.0",
+		"glob": "7.1.6",
+		"ora": "4.0.4",
+		"trample": "0.1.0"
+	},
+	"devDependencies": {},
+	"engines": {
+		"node": ">= 8.0.0",
+		"npm": ">= 5.0.0"
+	}
+}
