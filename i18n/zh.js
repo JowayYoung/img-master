@@ -9,7 +9,17 @@ const GLOB_TEXT = {
 };
 
 const ACTION_TEXT = {
-	compress: "压缩图片"
+	compress: "压缩图片",
+	group: "分组图片"
+};
+
+const QUESTION_TEXT = {
+	gruop: "请选择图片分组依据",
+	groupList: [
+		{ name: "按照图片尺寸分组", value: "size" },
+		{ name: "按照图片类型分组", value: "type" },
+		{ name: "按照图片大小区间分组", value: "range" }
+	]
 };
 
 const COMPRESS_TEXT = {
@@ -19,8 +29,21 @@ const COMPRESS_TEXT = {
 	downloadSuccessed: (path, obj) => `${Figures.tick} 下载[${Chalk.yellowBright(path)}]成功：原始大小${Chalk.redBright(ByteSize(obj.input.size))}，压缩大小${Chalk.greenBright(ByteSize(obj.output.size))}，优化比例${Chalk.blueBright(RoundNum(obj.output.ratio, 2, true))}`
 };
 
+const GROUP_TEXT = {
+	rangeGroupSuccessed: `${Figures.tick} 按图片${Chalk.greenBright("大小区间")}分组成功`,
+	sizeGroupSuccessed: `${Figures.tick} 按图片${Chalk.greenBright("尺寸")}分组成功`,
+	typeGroupSuccessed: `${Figures.tick} 按图片${Chalk.greenBright("类型")}分组成功`
+};
+
+const OPERATION_TEXT = {
+	targetCount: n => `${Figures.pointer} 待处理图片有${Chalk.blueBright(n)}张`
+};
+
 module.exports = {
 	ACTION_TEXT,
 	COMPRESS_TEXT,
-	GLOB_TEXT
+	GLOB_TEXT,
+	GROUP_TEXT,
+	OPERATION_TEXT,
+	QUESTION_TEXT
 };

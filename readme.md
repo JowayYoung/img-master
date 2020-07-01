@@ -22,13 +22,28 @@
 
 ### 使用
 
-命令|缩写|功能
-:-:|:-:|-
-`img-master compress` | `img-master c` | 压缩图片
+命令|缩写|功能|描述
+-|-|-|-
+`img-master compress`|`img-master c`|压缩图片|基于`TinyJpg`或`TinyPng`进行压缩
+`img-master group`|`img-master g`|分组图片|按图片`尺寸`、`类型`或`大小范围`进行分组
 
-```!
-推荐使用缩写命令
-```
+- 推荐使用缩写命令
+- 进入需要处理图片的根目录：`cd my-image`，再根据需求执行以上命令
+- 使用`https://tinyjpg.com`或`https://tinypng.com`压缩图片会有数量限制，但是使用`img-master c`可绕过其数量限制(`实现原理是随机修改请求头的X-Forwarded-For`)
+
+### 细节
+
+> 压缩图片
+
+- 默认输出目录为`#dist-compress#`
+- 图片可任意放置到根目录多层文件夹下，压缩图片后原样输出图片位置到`#dist-compress#`下
+- 重新压缩图片时，先移除`#dist-compress#`再生成新的`#dist-compress#`，注意保存压缩过的图片
+
+> 分组图片
+
+- 默认输出目录为`#dist-group#`
+- 图片可任意放置到根目录多层文件夹下，分组图片后按照分组依据输出图片位置到`#dist-group#`下
+- 重新分组图片时，先移除`#dist-group#`再生成新的`#dist-group#`，注意保存分组过的图片
 
 ### 版权
 
@@ -36,7 +51,7 @@ MIT © [Joway Young](https://github.com/JowayYoung)
 
 ### 后记
 
-如果觉得`img-master`对你有帮助，可在[Issue](https://github.com/JowayYoung/img-master/issues)上`提出你的宝贵建议`，笔者会认真阅读并整合你的建议。喜欢的可以给`img-master`一个[Start](https://github.com/JowayYoung/img-master)，或者[Fork](https://github.com/JowayYoung/img-master)本项目到自己的`Github`上，根据自身需求进行定制功能。
+如果觉得`img-master`对你有帮助，可在[Issue](https://github.com/JowayYoung/img-master/issues)上`提出你的宝贵建议`，笔者会认真阅读并整合你的建议。喜欢`img-master`的请给一个[Start](https://github.com/JowayYoung/img-master)，或[Fork](https://github.com/JowayYoung/img-master)本项目到自己的`Github`上，根据自身需求定制功能。
 
 **关注公众号`IQ前端`，一个专注于CSS/JS开发技巧的前端公众号，更多前端小干货等着你喔**
 

@@ -19,6 +19,12 @@ Commander
 	.alias("c")
 	.description(Chalk.blueBright(ACTION_TEXT.compress))
 	.action(() => AutoBin("compress"));
+// 分组图片
+Commander
+	.command("group")
+	.alias("g")
+	.description(Chalk.blueBright(ACTION_TEXT.group))
+	.action(() => AutoBin("group"));
 
 // 帮助
 Commander.parse(process.argv);

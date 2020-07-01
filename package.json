@@ -4,17 +4,19 @@
 	"description": "An image processing tool with multifunctional and unlimited",
 	"keywords": [
 		"img-master",
-		"tinyimg",
-		"tinyjpg",
-		"tinypng",
-		"tiny",
-		"image",
 		"img",
+		"master",
+		"image",
 		"jpg",
 		"png",
 		"multifunctional",
 		"unlimited",
-		"compress"
+		"compress",
+		"group",
+		"tinyimg",
+		"tinyjpg",
+		"tinypng",
+		"tiny"
 	],
 	"author": {
 		"name": "Joway Young",
@@ -38,6 +40,8 @@
 		"commander": "5.1.0",
 		"figures": "3.2.0",
 		"glob": "7.1.6",
+		"image-size": "0.8.3",
+		"inquirer": "7.2.0",
 		"ora": "4.0.4",
 		"trample": "0.1.0"
 	},
