@@ -1,3 +1,4 @@
+const Fs = require("fs");
 const Chalk = require("chalk");
 const Glob = require("glob");
 const { RandomNum } = require("trample/node");
@@ -13,7 +14,7 @@ function AutoBin(fn, ...rest) {
 function FilterImg() {
 	const ignore = Object.values(OUTPUT_DIR);
 	const regexp = `**/*.{${EXTS.join(",")}}`;
-	const imgs = Glob.sync(regexp).filter(v => ignore.every(w => !v.includes(w)));
+	const imgs = Glob.sync(regexp).filter(v => Fs.statSync(v).isFile() && ignore.every(w => !v.includes(w)));
 	console.log(OPERATION_TEXT.targetCount(imgs.length));
 	return imgs;
 }
