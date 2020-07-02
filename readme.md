@@ -1,4 +1,4 @@
-# Img Master <img src="https://img.shields.io/badge/img--master-多功能无限制的图片处理工具-66f.svg">
+# Img Master <img src="https://img.shields.io/badge/img--master-多功能无限制的图片批处理工具-66f.svg">
 
 [![author](https://img.shields.io/badge/author-JowayYoung-f66.svg)](https://github.com/JowayYoung/img-master)
 [![version](https://img.shields.io/badge/version-0.0.1-f66.svg)](https://github.com/JowayYoung/img-master)
@@ -9,7 +9,7 @@
 [![coverage](https://img.shields.io/badge/coverage-100%25-09f.svg)](https://github.com/JowayYoung/img-master)
 [![license](https://img.shields.io/badge/license-MIT-09f.svg)](https://github.com/JowayYoung/img-master)
 
-> `img-master`是一个多功能无限制的图片处理工具
+> `img-master`是一个多功能无限制的图片批处理工具，提供**压缩**、**分组**和**变换**三大批处理功能
 
 ### 安装
 

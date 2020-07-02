@@ -3,7 +3,7 @@ const Figures = require("figures");
 const { ByteSize, RoundNum } = require("trample/node");
 
 const GLOB_TEXT = {
-	desc: `Description:\n${Chalk.blueBright("img-master")} 一个多功能无限制的图片处理工具\n文档详情请查看 ${Chalk.yellowBright("https://github.com/JowayYoung/img-master")}`,
+	desc: `Description:\n${Chalk.blueBright("img-master")} 一个多功能无限制的图片批处理工具\n文档详情请查看 ${Chalk.yellowBright("https://github.com/JowayYoung/img-master")}`,
 	help: "使用信息",
 	version: "版本编号"
 };
