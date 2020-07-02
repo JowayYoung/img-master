@@ -13,10 +13,13 @@
 		"unlimited",
 		"compress",
 		"group",
+		"transform",
 		"tinyimg",
 		"tinyjpg",
 		"tinypng",
-		"tiny"
+		"tiny",
+		"sharp",
+		"libvips"
 	],
 	"author": {
 		"name": "Joway Young",

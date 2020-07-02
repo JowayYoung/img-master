@@ -38,25 +38,56 @@
 命令|缩写|功能|描述
 -|-|-|-
 `img-master compress`|`img-master c`|压缩图片|基于`TinyJPG`或`TinyPNG`进行压缩
-`img-master group`|`img-master g`|分组图片|按图片`尺寸`、`类型`或`大小范围`进行分组
+`img-master group`|`img-master g`|分组图片|按照图片`尺寸`、`类型`或`大小范围`进行分组
+`img-master transform`|`img-master t`|变换图片|基于`Sharp`进行变换
 
 - 推荐使用缩写命令
 - 进入需要处理图片的根目录：`cd my-image`，再根据需求执行以上命令
 - 使用`https://tinyjpg.com`或`https://tinypng.com`压缩图片会有数量限制，但是使用`img-master c`可绕过其数量限制(`实现原理是随机修改请求头的X-Forwarded-For`)
 
+> 图片变换
+
+- 命令：`img-master transform`或`img-master t`
+- 特点：执行命令可追加多个配置，支持链式调用，变换情况依据配置的顺序进行
+- 链式调用：当前变换配置处理完的图片，以流的方式传给下一个变换配置进行处理，直至结束，`类似Gulp的流处理`
+- 调用结果：不同配置组合的生成图片可能不同，即使相同配置但不同顺序也可能导致生成图片不同
+
+配置|缩写|功能|格式
+-|-|-|-
+`--resize`|`-r`|重置尺寸|`left,top,width,height`，不设置则不生效
+`--format`|`-f`|输出类型|`jpg`或`png`，不设置则使用图片原来的类型
+`--resize`|`-r`|重置尺寸|`width,height,fit`，不设置则不生效，若其中一方为0则自动缩放以匹配另一方
+
+- **fit**
+	- `cover`：裁剪以适应在指定尺寸中
+	- `contain`：嵌入在指定尺寸中
+	- `fill`：忽略宽高比，拉伸以填满在指定尺寸中
+	- `inside`：保留宽高比，将大小调整到尽可能大，同时确保其尺寸小于或等于指定尺寸
+	- `outside`：保留宽高比，将大小调整到尽可能小，同时确保其尺寸大于或等于指定尺寸
+
+> 注意事项
+
+- 变换图片的配置一定要输入完整且正确，不然会报错导致无法执行
+
 ### 细节
 
 > 压缩图片
 
-- 默认输出目录为`#dist-compress#`
-- 图片可任意放置到根目录多层文件夹下，压缩图片后原样输出图片位置到`#dist-compress#`下
-- 重新压缩图片时，先移除`#dist-compress#`再生成新的`#dist-compress#`，注意保存压缩过的图片
+- 输出目录为`#compressed-dist#`
+- 图片可任意放置到根目录多层文件夹下，压缩图片后原样输出图片位置到`#compressed-dist#`下
+- 重新压缩图片时，先移除`#compressed-dist#`再生成新的`#compressed-dist#`，注意保存压缩过的图片
 
 > 分组图片
 
-- 默认输出目录为`#dist-group#`
-- 图片可任意放置到根目录多层文件夹下，分组图片后按照分组依据输出图片位置到`#dist-group#`下
-- 重新分组图片时，先移除`#dist-group#`再生成新的`#dist-group#`，注意保存分组过的图片
+- 输出目录为`#grouped-dist#`
+- 图片可任意放置到根目录多层文件夹下，分组图片后按照分组依据输出图片位置到`#grouped-dist#`下
+- 重新分组图片时，先移除`#grouped-dist#`再生成新的`#grouped-dist#`，注意保存分组过的图片
+
+> 变换图片
+
+- 输出目录为`#transformed-dist#`
+- 图片可任意放置到根目录多层文件夹下，变换图片后原样输出图片位置到`#transformed-dist#`下
+- 重新变换图片时，先移除`#transformed-dist#`再生成新的`#transformed-dist#`，注意保存变换过的图片
 
 ### 版权
 

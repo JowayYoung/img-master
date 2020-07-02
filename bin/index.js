@@ -5,6 +5,7 @@ const Commander = require("commander");
 
 const { version } = require("../package");
 const { ACTION_TEXT, GLOB_TEXT } = require("../i18n");
+const { REGEXP } = require("../util/getting");
 const { AutoBin } = require("../util/setting");
 
 // 版本和用法
@@ -25,6 +26,15 @@ Commander
 	.alias("g")
 	.description(Chalk.blueBright(ACTION_TEXT.group))
 	.action(() => AutoBin("group"));
+// 变换图片
+Commander
+	.command("transform")
+	.alias("t")
+	.option("-e, --extract [size]", "裁剪尺寸", REGEXP.extract, "")
+	.option("-f, --format [type]", "输出格式", REGEXP.format, "")
+	.option("-r, --resize [size]", "重置尺寸", REGEXP.resize, "")
+	.description(Chalk.blueBright(ACTION_TEXT.transform))
+	.action((cmd, env) => AutoBin("transform", cmd, env));
 
 // 帮助
 Commander.parse(process.argv);
