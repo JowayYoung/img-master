@@ -41,13 +41,14 @@
 		"figures": "3.2.0",
 		"glob": "7.1.6",
 		"image-size": "0.8.3",
-		"inquirer": "7.2.0",
+		"inquirer": "7.3.0",
 		"ora": "4.0.4",
+		"sharp": "0.25.4",
 		"trample": "0.1.0"
 	},
 	"devDependencies": {},
 	"engines": {
-		"node": ">= 8.0.0",
-		"npm": ">= 5.0.0"
+		"node": ">= 10.0.0",
+		"npm": ">= 5.6.0"
 	}
 }
