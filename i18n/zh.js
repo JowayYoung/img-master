@@ -33,8 +33,7 @@ const COMPRESS_TEXT = {
 const GROUP_TEXT = {
 	grouprangeCompleted: `${Figures.tick} 按照图片${Chalk.greenBright("大小区间")}分组完成`,
 	groupsizeCompleted: `${Figures.tick} 按照图片${Chalk.greenBright("尺寸")}分组完成`,
-	grouptypeCompleted: `${Figures.tick} 按照图片${Chalk.greenBright("类型")}分组完成`,
-	loading: "图片正在分组中..."
+	grouptypeCompleted: `${Figures.tick} 按照图片${Chalk.greenBright("类型")}分组完成`
 };
 
 const OPERATION_TEXT = {

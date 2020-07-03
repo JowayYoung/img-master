@@ -19,6 +19,10 @@ function FilterImg() {
 	return imgs;
 }
 
+function FormatExt(path = "") {
+	return path.replace(/\.jpe?g$/ig, ".jpg").replace(/\.png$/ig, ".png");
+}
+
 function RandomHeader() {
 	const ip = new Array(4).fill(0).map(() => parseInt(Math.random() * 255)).join(".");
 	const index = RandomNum(0, 1);
@@ -37,13 +41,14 @@ function RandomHeader() {
 	};
 }
 
-function ShowTitle(type) {
+function ShowTitle(type = "") {
 	console.log(Chalk.white.bgMagenta(`### ${ACTION_TEXT[type]} ###`));
 }
 
 module.exports = {
 	AutoBin,
 	FilterImg,
+	FormatExt,
 	RandomHeader,
 	ShowTitle
 };
