@@ -17,8 +17,9 @@ const OUTPUT_DIR = {
 
 const REGEXP = {
 	extract: /^[\d]{1,},[\d]{1,},[\d]{1,},[\d]{1,}$/g,
-	format: /^(jpg|png)$/ig,
-	resize: /^[\d]{1,},[\d]{1,},(cover|contain|fill|inside|outside)$/g
+	format: /^(jpg|png)$/g,
+	resize: /^[\d]{1,},[\d]{1,}(,(cover|contain|fill|inside|outside))?$/g,
+	rotate: /^-?[\d]{1,}(,(transparent|#[0-9a-f]{3}|#[0-9a-f]{6}|rgba\([\d]{1,3},[\d]{1,3},[\d]{1,3}(,(0\.[\d]{1,2}|1))?\)))?$/g
 };
 
 const SIZE_RANGE = {
@@ -32,12 +33,10 @@ const TINYIMG = [
 ];
 
 const TRANSFORM_OPTS = [
-	"-e",
 	"--extract",
-	"-f",
 	"--format",
-	"-r",
-	"--resize"
+	"--resize",
+	"--rotate"
 ];
 
 module.exports = {

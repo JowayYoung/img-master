@@ -42,9 +42,9 @@ const OPERATION_TEXT = {
 };
 
 const TRANSFORM_TEXT = {
-	transformCompleted: (path, obj) => `${Figures.tick} 变换[${Chalk.yellowBright(path)}]完成：转换尺寸${Chalk.greenBright(obj.width)}x${Chalk.greenBright(obj.height)}，转换大小${Chalk.greenBright(ByteSize(obj.size))}`,
+	transformCompleted: (path, obj) => `${Figures.tick} 变换[${Chalk.yellowBright(path)}]完成：转换尺寸${Chalk.greenBright(obj.width)}x${Chalk.greenBright(obj.height)}，转换大小${Chalk.greenBright(ByteSize(obj.size))}，转换类型${Chalk.greenBright(obj.format === "jpeg" ? "JPG" : obj.format.toUpperCase())}`,
 	transformFailed: (path, msg) => `${Figures.cross} 变换[${Chalk.yellowBright(path)}]失败：${Chalk.redBright(msg)}`,
-	transformEmpty: `${Figures.cross} 变换图片失败：${Chalk.redBright("请在命令行里输入图片变换参数")}`
+	transformEmpty: `${Figures.cross} 变换图片失败：${Chalk.redBright("请检查配置是否未输入或输入错误")}`
 };
 
 module.exports = {
