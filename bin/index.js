@@ -5,7 +5,7 @@ const Commander = require("commander");
 
 const { version } = require("../package");
 const { ACTION_TEXT, GLOB_TEXT } = require("../i18n");
-const { REGEXP } = require("../util/getting");
+const { TRANSFORM_REGEXP } = require("../util/getting");
 const { AutoBin } = require("../util/setting");
 
 // 版本和用法
@@ -30,12 +30,17 @@ Commander
 Commander
 	.command("transform")
 	.alias("t")
-	.option("--extract [param]", "裁剪尺寸", REGEXP.extract, "")
-	.option("--format [param]", "输出格式", REGEXP.format, "")
-	.option("--resize [param]", "重置尺寸", REGEXP.resize, "")
-	.option("--rotate [param]", "重置尺寸", REGEXP.rotate, "")
+	.option("--blur [param]", "模糊", TRANSFORM_REGEXP.blur, "")
+	.option("--extract [param]", "裁剪", TRANSFORM_REGEXP.extract, "")
+	.option("--flip [param]", "平翻", TRANSFORM_REGEXP.flip, "")
+	.option("--flop [param]", "对翻", TRANSFORM_REGEXP.flop, "")
+	.option("--format [param]", "格式", TRANSFORM_REGEXP.format, "")
+	.option("--grayscale [param]", "灰度", TRANSFORM_REGEXP.grayscale, "")
+	.option("--negate [param]", "负片", TRANSFORM_REGEXP.negate, "")
+	.option("--resize [param]", "尺寸", TRANSFORM_REGEXP.resize, "")
+	.option("--rotate [param]", "旋转", TRANSFORM_REGEXP.rotate, "")
+	.option("--sharpen [param]", "锐化", TRANSFORM_REGEXP.sharpen, "")
 	.description(Chalk.blueBright(ACTION_TEXT.transform))
 	.action((cmd, env) => AutoBin("transform", cmd, env));
-
 // 帮助
 Commander.parse(process.argv);

@@ -54,18 +54,24 @@
 
 配置|功能|格式(`[]表示可选`)|描述
 -|-|-|-
-`--extract`|裁剪区域|`left,top,width,height`|不设置则不生效
-`--format`|输出类型|`jpg`或`png`|不设置则使用图片原来的类型
-`--resize`|重置尺寸|`width,height[,fit]`|不设置则不生效，若其中一方为0则自动缩放以匹配另一方
-`--rotate`|旋转角度|`angle[,bgcolor]`|不设置则不生效
+`--blur`|模糊|`0.3~1000`|不设置则不生效
+`--extract`|裁剪|`left,top,width,height`|不设置则不生效
+`--flip`|平翻|`true`|不设置则不生效
+`--flop`|对翻|`true`|不设置则不生效
+`--format`|格式|`jpg`或`png`|不设置则使用图片原来的类型
+`--grayscale`|灰度|`true`|不设置则不生效
+`--negate`|负片|`true`|不设置则不生效
+`--resize`|尺寸|`width,height[,fit]`|若其中一方为0则自动缩放以匹配另一方<br>不设置则不生效
+`--rotate`|旋转|`angle[,bgcolor]`|不设置则不生效
+`--sharpen`|锐化|`true`或`[sigama,flat,jagged]`|`true`表示执行快速温和的锐化输出<br>sigama在`0.3~1000`间，其余参数必须`>0`<br>不设置则不生效
 
-- **fit**：填充规则
+- **fit**：填充
 	- `cover`：裁剪以适应在指定尺寸中
 	- `contain`：嵌入在指定尺寸中
 	- `fill`：忽略宽高比，拉伸以填满在指定尺寸中
 	- `inside`：保留宽高比，将大小调整到尽可能大，同时确保其尺寸小于或等于指定尺寸
 	- `outside`：保留宽高比，将大小调整到尽可能小，同时确保其尺寸大于或等于指定尺寸
-- **bgcolor**：背景色规则(`不能使用空格隔开`)
+- **bgcolor**：背景色
 	- `transparent`：透明，需配合`--format png`使用
 	- `HEX`：16进制色值，可选`#xyz`或`#uvwxyz`
 	- `RGB`：RGB色值，`rgba(r,g,b)`
@@ -74,6 +80,8 @@
 > 注意事项
 
 - 配置一定要输入完整且正确，格式为`--opt [val]`，不然会报错导致无法执行
+- 配置参数间相连只能使用英文逗号`,`，不能使用空格
+- 配置详情请参考[sharp-api](https://sharp.pixelplumbing.com/api-constructor)
 
 ### 细节
 
