@@ -16,6 +16,7 @@ const OUTPUT_DIR = {
 };
 
 const REGEXP = {
+	blur: /^(0|(\d+))(\.\d+)?$/,
 	extract: /^[\d]{1,},[\d]{1,},[\d]{1,},[\d]{1,}$/,
 	flip: /^true$/,
 	flop: /^true$/,
@@ -24,7 +25,7 @@ const REGEXP = {
 	negate: /^true$/,
 	resize: /^[\d]{1,},[\d]{1,}(,(cover|contain|fill|inside|outside))?$/,
 	rotate: /^-?[\d]{1,}(,(transparent|#[0-9a-f]{3}|#[0-9a-f]{6}|rgba\([\d]{1,3},[\d]{1,3},[\d]{1,3}(,(0\.[\d]{1,2}|1))?\)))?$/,
-	sharpen: /^true$|^((0|(\d*))(\.\d+)?)?(,(0|(\d*))(\.\d+)?)?(,(0|(\d*))(\.\d+)?)?$/
+	sharpen: /^true$|^((0|(\d+))(\.\d+)?)(,(0|(\d+))(\.\d+)?)?(,(0|(\d+))(\.\d+)?)?$/
 };
 
 const SIZE_RANGE = {
@@ -52,10 +53,10 @@ const TRANSFORM_OPTS = [
 
 const TRANSFORM_REGEXP = {
 	blur(val = "") {
-		return !isNaN(+val) && +val >= 0.3 && +val <= 1000 ? +val : "";
+		return REGEXP.blur.test(val) && +val >= 0.3 && +val <= 1000 ? +val : "";
 	},
 	extract(val = "") {
-		if (!val || !REGEXP.extract.test(val)) return "";
+		if (!REGEXP.extract.test(val)) return "";
 		const [left, top, width, height] = val.split(",").map(v => +v);
 		return { height, left, top, width };
 	},
@@ -75,7 +76,7 @@ const TRANSFORM_REGEXP = {
 		return REGEXP.negate.test(val) ? true : "";
 	},
 	resize(val = "") {
-		if (!val || !REGEXP.resize.test(val)) return "";
+		if (!REGEXP.resize.test(val)) return "";
 		const [width, height, fit = "cover"] = val.split(",").map(v => +v);
 		return {
 			fit,
@@ -84,12 +85,12 @@ const TRANSFORM_REGEXP = {
 		};
 	},
 	rotate(val = "") {
-		if (!val || !REGEXP.rotate.test(val)) return "";
+		if (!REGEXP.rotate.test(val)) return "";
 		const [angle, bgcolor = "#fff"] = val.split(",");
 		return [+angle, { background: bgcolor }];
 	},
 	sharpen(val = "") {
-		if (!val || !REGEXP.sharpen.test(val)) return "";
+		if (!REGEXP.sharpen.test(val)) return "";
 		if (val === "true") return "true";
 		const [sigama, flat = 1, jagged = 2] = val.split(",").map(v => +v);
 		if (sigama < 0.3 || sigama > 1000 || !flat || !jagged) return "";
