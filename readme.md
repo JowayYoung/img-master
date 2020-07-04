@@ -1,7 +1,7 @@
-# Img Master <img src="https://img.shields.io/badge/img--master-多功能无限制的图片批处理工具-66f.svg">
+# Img Master <img src="https://img.shields.io/badge/img--master-多功能无限制的图像批处理工具-66f.svg">
 
 [![author](https://img.shields.io/badge/author-JowayYoung-f66.svg)](https://github.com/JowayYoung/img-master)
-[![version](https://img.shields.io/badge/version-0.0.1-f66.svg)](https://github.com/JowayYoung/img-master)
+[![version](https://img.shields.io/badge/version-0.0.2-f66.svg)](https://github.com/JowayYoung/img-master)
 [![node](https://img.shields.io/badge/node-%3E%3D%2010.0.0-3c9.svg)](https://github.com/JowayYoung/img-master)
 [![npm](https://img.shields.io/badge/npm-%3E%3D%205.6.0-3c9.svg)](https://github.com/JowayYoung/img-master)
 [![test](https://img.shields.io/badge/test-passing-f90.svg)](https://github.com/JowayYoung/img-master)
@@ -9,7 +9,7 @@
 [![coverage](https://img.shields.io/badge/coverage-100%25-09f.svg)](https://github.com/JowayYoung/img-master)
 [![license](https://img.shields.io/badge/license-MIT-09f.svg)](https://github.com/JowayYoung/img-master)
 
-> `img-master`是一个多功能无限制的图片批处理工具，提供**压缩**、**分组**和**变换**三大批处理功能
+> `img-master`是一个多功能无限制的图像批处理工具，提供**压缩**、**分组**和**变换**三大批处理功能
 
 ### 安装
 
@@ -31,26 +31,30 @@
 若是多账户电脑(公司环境)，请切换到管理员账号下执行npm i -g img-master重新安装
 ```
 
-若有兴趣了解`某些模块因NPM镜像问题而安装不上`的解围思路，可查看笔者这篇[《聊聊NPM镜像那些险象环生的坑》](https://juejin.im/post/5edf60d4f265da76b559b6ac)，相信会对你帮助很大。
+若有兴趣了解`某些模块因NPM镜像问题而安装不上`的解围思路，可查看笔者这篇[《聊聊NPM镜像那些险象环生的坑》](https://juejin.im/post/5edf60d4f265da76b559b6ac)，相信会对你有很大的帮助。
 
 ### 使用
 
 命令|缩写|功能|描述
 -|-|-|-
-`img-master compress`|`img-master c`|压缩图片|基于`TinyJPG`或`TinyPNG`进行压缩
-`img-master group`|`img-master g`|分组图片|按照图片`尺寸`、`类型`或`大小范围`进行分组
-`img-master transform`|`img-master t`|变换图片|基于`Sharp`进行变换
+`img-master compress`|`img-master c`|压缩图像|基于`TinyJPG`或`TinyPNG`进行压缩
+`img-master group`|`img-master g`|分组图像|按照图像`尺寸`、`类型`或`大小范围`进行分组
+`img-master transform`|`img-master t`|变换图像|基于`Sharp`进行变换，提供多配置链式调用
 
 - 推荐使用缩写命令
-- 进入需要处理图片的根目录：`cd my-image`，再根据需求执行以上命令
-- 使用`https://tinyjpg.com`或`https://tinypng.com`压缩图片会有数量限制，但是使用`img-master c`可绕过其数量限制(`实现原理是随机修改请求头的X-Forwarded-For`)
+- 目前只能处理`JPG`和`PNG`的图像
+- 进入需要处理图像的根目录：`cd my-image`，再根据需求执行以上命令
 
-> 图片变换
+> 图像压缩
 
-- 命令：`img-master transform`或`img-master t`
-- 特点：执行命令可追加多个配置，支持链式调用，变换情况依据配置的顺序进行
-- 链式调用：当前配置处理完的图片，以流的方式传入下一个配置进行处理，直至结束，`类似Gulp的流处理`
-- 调用结果：不同配置组合的生成图片可能不同，即使相同配置但不同顺序也可能导致生成图片不同
+- 使用`https://tinyjpg.com`或`https://tinypng.com`压缩图像会有`20张`的数量限制
+- `img-master c`基于以上两个网站进行压缩，但是通过随机修改请求头的`X-Forwarded-For`绕过其数量限制
+
+> 图像变换
+
+- 特点：执行命令可追加多个配置，支持链式调用，变换情况依据配置的顺序而有所不同
+- 链式调用：当前配置处理完的图像，以流的方式传入下一个配置进行处理，直至结束，`类似Gulp的流处理`
+- 调用结果：不同配置组合的生成图像可能不同，即使相同配置但不同顺序也可能导致生成图像不同
 
 配置|功能|格式(`[]表示可选`)|描述
 -|-|-|-
@@ -58,7 +62,7 @@
 `--extract`|裁剪|`left,top,width,height`|不设置则不生效
 `--flip`|平翻|`true`|不设置则不生效
 `--flop`|对翻|`true`|不设置则不生效
-`--format`|格式|`jpg`或`png`|不设置则使用图片原来的类型
+`--format`|格式|`jpg`或`png`|不设置则使用图像原来的类型
 `--grayscale`|灰度|`true`|不设置则不生效
 `--negate`|负片|`true`|不设置则不生效
 `--normalise`|对比|`true`|不设置则不生效
@@ -86,23 +90,23 @@
 
 ### 细节
 
-> 压缩图片
+> 压缩图像
 
 - 输出目录为`#compressed-dist#`
-- 图片可任意放置到根目录多层文件夹下，压缩图片后原样输出图片位置到`#compressed-dist#`下
-- 重新压缩图片时，先移除`#compressed-dist#`再生成新的`#compressed-dist#`，注意保存压缩过的图片
+- 图像可任意放置到根目录多层文件夹下，压缩图像后原样输出图像位置到`#compressed-dist#`下
+- 重新压缩图像时，先移除`#compressed-dist#`再生成新的`#compressed-dist#`，注意保存压缩过的图像
 
-> 分组图片
+> 分组图像
 
 - 输出目录为`#grouped-dist#`
-- 图片可任意放置到根目录多层文件夹下，分组图片后按照分组依据输出图片位置到`#grouped-dist#`下
-- 重新分组图片时，先移除`#grouped-dist#`再生成新的`#grouped-dist#`，注意保存分组过的图片
+- 图像可任意放置到根目录多层文件夹下，分组图像后按照分组依据输出图像位置到`#grouped-dist#`下
+- 重新分组图像时，先移除`#grouped-dist#`再生成新的`#grouped-dist#`，注意保存分组过的图像
 
-> 变换图片
+> 变换图像
 
 - 输出目录为`#transformed-dist#`
-- 图片可任意放置到根目录多层文件夹下，变换图片后原样输出图片位置到`#transformed-dist#`下
-- 重新变换图片时，先移除`#transformed-dist#`再生成新的`#transformed-dist#`，注意保存变换过的图片
+- 图像可任意放置到根目录多层文件夹下，变换图像后原样输出图像位置到`#transformed-dist#`下
+- 重新变换图像时，先移除`#transformed-dist#`再生成新的`#transformed-dist#`，注意保存变换过的图像
 
 ### 版权
 
