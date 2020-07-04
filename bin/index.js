@@ -37,6 +37,7 @@ Commander
 	.option("--format [param]", "格式", TRANSFORM_REGEXP.format, "")
 	.option("--grayscale [param]", "灰度", TRANSFORM_REGEXP.grayscale, "")
 	.option("--negate [param]", "负片", TRANSFORM_REGEXP.negate, "")
+	.option("--normalise [param]", "对比", TRANSFORM_REGEXP.normalise, "")
 	.option("--resize [param]", "尺寸", TRANSFORM_REGEXP.resize, "")
 	.option("--rotate [param]", "旋转", TRANSFORM_REGEXP.rotate, "")
 	.option("--sharpen [param]", "锐化", TRANSFORM_REGEXP.sharpen, "")

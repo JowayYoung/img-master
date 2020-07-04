@@ -23,6 +23,7 @@ const REGEXP = {
 	format: /^(jpg|png)$/,
 	grayscale: /^true$/,
 	negate: /^true$/,
+	normalise: /^true$/,
 	resize: /^[\d]{1,},[\d]{1,}(,(cover|contain|fill|inside|outside))?$/,
 	rotate: /^-?[\d]{1,}(,(transparent|#[0-9a-f]{3}|#[0-9a-f]{6}|rgba\([\d]{1,3},[\d]{1,3},[\d]{1,3}(,(0\.[\d]{1,2}|1))?\)))?$/,
 	sharpen: /^true$|^((0|(\d+))(\.\d+)?)(,(0|(\d+))(\.\d+)?)?(,(0|(\d+))(\.\d+)?)?$/
@@ -46,6 +47,7 @@ const TRANSFORM_OPTS = [
 	"--format",
 	"--grayscale",
 	"--negate",
+	"--normalise",
 	"--resize",
 	"--rotate",
 	"--sharpen"
@@ -74,6 +76,9 @@ const TRANSFORM_REGEXP = {
 	},
 	negate(val = "") {
 		return REGEXP.negate.test(val) ? true : "";
+	},
+	normalise(val = "") {
+		return REGEXP.normalise.test(val) ? true : "";
 	},
 	resize(val = "") {
 		if (!REGEXP.resize.test(val)) return "";

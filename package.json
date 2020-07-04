@@ -21,6 +21,7 @@
 		"format",
 		"grayscale",
 		"negate",
+		"normalize",
 		"resize",
 		"rotate",
 		"sharpen",

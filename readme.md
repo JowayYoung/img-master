@@ -61,6 +61,7 @@
 `--format`|格式|`jpg`或`png`|不设置则使用图片原来的类型
 `--grayscale`|灰度|`true`|不设置则不生效
 `--negate`|负片|`true`|不设置则不生效
+`--normalise`|对比|`true`|不设置则不生效
 `--resize`|尺寸|`width,height[,fit]`|若其中一方为0则自动缩放以匹配另一方<br>不设置则不生效
 `--rotate`|旋转|`angle[,bgcolor]`|不设置则不生效
 `--sharpen`|锐化|`true`或`[sigama,flat,jagged]`|`true`表示执行快速温和的锐化输出<br>sigama在`0.3~1000`间，其余参数必须`>0`<br>不设置则不生效
