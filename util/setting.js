@@ -20,7 +20,8 @@ function FilterImg() {
 }
 
 function FormatExt(path = "") {
-	return path.replace(/\.jpe?g$/ig, ".jpg").replace(/\.png$/ig, ".png");
+	const newPath = path.replace(/\.jpe?g$/ig, ".jpg").replace(/\.png$/ig, ".png");
+	return newPath;
 }
 
 function RandomHeader() {

@@ -14,19 +14,25 @@ Commander
 	.version(version, "-v, --version", Chalk.greenBright(GLOB_TEXT.version))
 	.helpOption("-h, --help", Chalk.greenBright(GLOB_TEXT.help))
 	.description(GLOB_TEXT.desc);
-// 压缩图片
+// 压缩图像
 Commander
 	.command("compress")
 	.alias("c")
 	.description(Chalk.blueBright(ACTION_TEXT.compress))
 	.action(() => AutoBin("compress"));
-// 分组图片
+// 分组图像
 Commander
 	.command("group")
 	.alias("g")
 	.description(Chalk.blueBright(ACTION_TEXT.group))
 	.action(() => AutoBin("group"));
-// 变换图片
+// 标记图像
+Commander
+	.command("mark")
+	.alias("m")
+	.description(Chalk.blueBright(ACTION_TEXT.mark))
+	.action(() => AutoBin("mark"));
+// 变换图像
 Commander
 	.command("transform")
 	.alias("t")

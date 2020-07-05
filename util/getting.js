@@ -12,10 +12,18 @@ const MAX_SIZE = 1024 ** 2 * 5;
 const OUTPUT_DIR = {
 	compress: "#compressed-dist#",
 	group: "#grouped-dist#",
+	mark: "#marked-dist#",
 	transform: "#transformed-dist#"
 };
 
 const REGEXP = {
+	// 标记
+	color: /^(#[0-9a-f]{3}|#[0-9a-f]{6}|rgba\([\d]{1,3},[\d]{1,3},[\d]{1,3}(,(0\.[\d]{1,2}|1))?\))$/,
+	left: /^(0|([1-9]\d*))$/,
+	size: /^([1-9]\d*)$/,
+	text: /^[\w\s\u4e00-\u9fa5-]{1,50}$/,
+	top: /^(0|([1-9]\d*))$/,
+	// 变换
 	blur: /^(0|(\d+))(\.\d+)?$/,
 	extract: /^[\d]{1,},[\d]{1,},[\d]{1,},[\d]{1,}$/,
 	flip: /^true$/,

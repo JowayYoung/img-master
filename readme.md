@@ -9,7 +9,7 @@
 [![coverage](https://img.shields.io/badge/coverage-100%25-09f.svg)](https://github.com/JowayYoung/img-master)
 [![license](https://img.shields.io/badge/license-MIT-09f.svg)](https://github.com/JowayYoung/img-master)
 
-> `img-master`是一个多功能无限制的图像批处理工具，提供**压缩**、**分组**和**变换**三大批处理功能
+> `img-master`是一个多功能无限制的图像批处理工具，提供**压缩**、**分组**、**标记**和**变换**四大批处理功能
 
 ### 安装
 
@@ -39,6 +39,7 @@
 -|-|-|-
 `img-master compress`|`img-master c`|压缩图像|基于`TinyJPG`或`TinyPNG`进行压缩
 `img-master group`|`img-master g`|分组图像|按照图像`尺寸`、`类型`或`大小范围`进行分组
+`img-master mark`|`img-master m`|标记图像|基于`Sharp`进行标记
 `img-master transform`|`img-master t`|变换图像|基于`Sharp`进行变换，提供多配置链式调用
 
 - 推荐使用缩写命令
@@ -101,6 +102,12 @@
 - 输出目录为`#grouped-dist#`
 - 图像可任意放置到根目录多层文件夹下，分组图像后按照分组依据输出图像位置到`#grouped-dist#`下
 - 重新分组图像时，先移除`#grouped-dist#`再生成新的`#grouped-dist#`，注意保存分组过的图像
+
+> 标记图像
+
+- 输出目录为`#marked-dist#`
+- 图像可任意放置到根目录多层文件夹下，标记图像后原样输出图像位置到`#marked-dist#`下
+- 重新标记图像时，先移除`#marked-dist#`再生成新的`#marked-dist#`，注意保存标记过的图像
 
 > 变换图像
 

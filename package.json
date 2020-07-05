@@ -57,6 +57,7 @@
 		"image-size": "0.8.3",
 		"inquirer": "7.3.0",
 		"sharp": "0.25.4",
+		"text-to-svg": "3.1.5",
 		"trample": "0.1.0"
 	},
 	"devDependencies": {},

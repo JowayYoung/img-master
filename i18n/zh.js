@@ -11,6 +11,7 @@ const GLOB_TEXT = {
 const ACTION_TEXT = {
 	compress: "压缩图像",
 	group: "分组图像",
+	mark: "标记图像",
 	transform: "变换图像",
 	tBlur: "模糊",
 	tExtract: "裁剪",
@@ -31,7 +32,60 @@ const QUESTION_TEXT = {
 		{ name: "按照图像类型分组", value: "type" },
 		{ name: "按照图像尺寸分组", value: "size" },
 		{ name: `按照图像大小区间分组：${Chalk.blueBright("小于10k为小图，介于10k~100k为中图，大于100k为大图")}`, value: "range" }
-	]
+	],
+	judgeMarkColor: "请输入正确的标记水印颜色：HEX、RGB、RGBA",
+	judgeMarkLeft: "请输入正确的标记水印左偏移量：0或正整数",
+	judgeMarkSize: "请输入正确的标记水印大小：正整数",
+	judgeMarkText: "请输入正确的标记水印大小：1到50位数字、英文、中文、空格、下划线或中划线的字符",
+	judgeMarkTop: "请输入正确的标记水印上偏移量：0或正整数",
+	markBlend: "请选择标记混合模式",
+	markBlendList: [
+		{ name: "add", value: "add" },
+		{ name: "atop", value: "atop" },
+		{ name: "clear", value: "clear" },
+		{ name: "color-burn", value: "color-burn" },
+		{ name: "color-dodge", value: "color-dodge" },
+		{ name: "colour-burn", value: "colour-burn" },
+		{ name: "colour-dodge", value: "colour-dodge" },
+		{ name: "darken", value: "darken" },
+		{ name: "dest", value: "dest" },
+		{ name: "dest-atop", value: "dest-atop" },
+		{ name: "dest-in", value: "dest-in" },
+		{ name: "dest-out", value: "dest-out" },
+		{ name: "dest-over", value: "dest-over" },
+		{ name: "difference", value: "difference" },
+		{ name: "exclusion", value: "exclusion" },
+		{ name: "hard-light", value: "hard-light" },
+		{ name: "in", value: "in" },
+		{ name: "lighten", value: "lighten" },
+		{ name: "multiply", value: "multiply" },
+		{ name: "out", value: "out" },
+		{ name: "over", value: "over" },
+		{ name: "overlay", value: "overlay" },
+		{ name: "saturate", value: "saturate" },
+		{ name: "screen", value: "screen" },
+		{ name: "soft-light", value: "soft-light" },
+		{ name: "source", value: "source" },
+		{ name: "xor", value: "xor" }
+	],
+	markColor: "请输入标记水印颜色",
+	markGravity: "请选择标记水印位置",
+	markGravityList: [
+		{ name: "无", value: "none" },
+		{ name: "中", value: "center" },
+		{ name: "左", value: "west" },
+		{ name: "右", value: "east" },
+		{ name: "上", value: "north" },
+		{ name: "下", value: "south" },
+		{ name: "左上", value: "northwest" },
+		{ name: "左下", value: "southwest" },
+		{ name: "右上", value: "northeast" },
+		{ name: "右下", value: "southeast" }
+	],
+	markLeft: "请输入标记水印左偏移量",
+	markSize: "请输入标记水印大小",
+	markText: "请输入标记水印文本",
+	markTop: "请输入标记水印上偏移量"
 };
 
 const COMPRESS_TEXT = {
@@ -45,6 +99,11 @@ const GROUP_TEXT = {
 	grouprangeCompleted: `${Figures.tick} 按照图像${Chalk.greenBright("大小区间")}分组完成`,
 	groupsizeCompleted: `${Figures.tick} 按照图像${Chalk.greenBright("尺寸")}分组完成`,
 	grouptypeCompleted: `${Figures.tick} 按照图像${Chalk.greenBright("类型")}分组完成`
+};
+
+const MARK_TEXT = {
+	markCompleted: (path, text) => `${Figures.tick} 标记[${Chalk.yellowBright(path)}]完成：添加水印${Chalk.greenBright(text)}`,
+	markFailed: (path, msg) => `${Figures.cross} 标记[${Chalk.yellowBright(path)}]失败：${Chalk.redBright(msg)}`
 };
 
 const OPERATION_TEXT = {
@@ -62,6 +121,7 @@ module.exports = {
 	COMPRESS_TEXT,
 	GLOB_TEXT,
 	GROUP_TEXT,
+	MARK_TEXT,
 	OPERATION_TEXT,
 	QUESTION_TEXT,
 	TRANSFORM_TEXT
