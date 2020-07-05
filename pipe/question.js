@@ -20,7 +20,7 @@ const QT_MARK_BLEND = {
 };
 
 const QT_MARK_COLOR = {
-	default: "#f66",
+	default: "#000",
 	message: QUESTION_TEXT.markColor,
 	name: "markColor",
 	type: "input",
@@ -29,7 +29,7 @@ const QT_MARK_COLOR = {
 
 const QT_MARK_GRAVITY = {
 	choices: QUESTION_TEXT.markGravityList,
-	default: "over",
+	default: "none",
 	message: QUESTION_TEXT.markGravity,
 	name: "markGravity",
 	type: "list"
@@ -52,7 +52,7 @@ const QT_MARK_SIZE = {
 };
 
 const QT_MARK_TEXT = {
-	default: "水印",
+	default: "JowayYoung",
 	message: QUESTION_TEXT.markText,
 	name: "markText",
 	type: "input",

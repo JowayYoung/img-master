@@ -39,11 +39,12 @@
 -|-|-|-
 `img-master compress`|`img-master c`|压缩图像|基于`TinyJPG`或`TinyPNG`进行压缩
 `img-master group`|`img-master g`|分组图像|按照图像`尺寸`、`类型`或`大小范围`进行分组
-`img-master mark`|`img-master m`|标记图像|基于`Sharp`进行标记
+`img-master mark`|`img-master m`|标记图像|基于`Sharp`进行标记，提供交互式问答调用
 `img-master transform`|`img-master t`|变换图像|基于`Sharp`进行变换，提供多配置链式调用
 
 - 推荐使用缩写命令
 - 目前只能处理`JPG`和`PNG`的图像
+- 可遍历根目录下所有多层文件夹里符合条件的图像文件
 - 进入需要处理图像的根目录：`cd my-image`，再根据需求执行以上命令
 
 > 图像压缩
@@ -115,6 +116,48 @@
 - 图像可任意放置到根目录多层文件夹下，变换图像后原样输出图像位置到`#transformed-dist#`下
 - 重新变换图像时，先移除`#transformed-dist#`再生成新的`#transformed-dist#`，注意保存变换过的图像
 
+### 示例
+
+所有命令作用一次以下文件夹的图像
+
+![原始图像](https://static.yangzw.vip/npm/img-master/原始图像.png)
+
+> 压缩图像
+
+`img-master c`
+
+![压缩图像命令](https://static.yangzw.vip/npm/img-master/压缩图像命令.png)
+
+![压缩图像](https://static.yangzw.vip/npm/img-master/压缩图像.png)
+
+> 分组图像
+
+`img-master g`
+
+![分组图像命令](https://static.yangzw.vip/npm/img-master/分组图像命令.png)
+
+![分组图像](https://static.yangzw.vip/npm/img-master/分组图像.png)
+
+> 标记图像
+
+`img-master m`
+
+![标记图像命令](https://static.yangzw.vip/npm/img-master/标记图像命令.png)
+
+![标记图像](https://static.yangzw.vip/npm/img-master/标记图像.png)
+
+> 变换图像
+
+`img-master t --resize 300,0 --extract 50,50,100,100 --rotate 200,#3c9 --blur 5 --format png`
+
+![变换图像命令](https://static.yangzw.vip/npm/img-master/变换图像命令.png)
+
+![变换图像](https://static.yangzw.vip/npm/img-master/变换图像.png)
+
+```txt
+相同配置但不同顺序也可能导致生成图像不同
+```
+
 ### 版权
 
 MIT © [Joway Young](https://github.com/JowayYoung)
@@ -125,4 +168,4 @@ MIT © [Joway Young](https://github.com/JowayYoung)
 
 **关注公众号`IQ前端`，一个专注于CSS/JS开发技巧的前端公众号，更多前端小干货等着你喔**
 
-![](https://yangzw.vip/static/frontend/account/IQ前端公众号.jpg)
+![](https://static.yangzw.vip/frontend/account/IQ前端公众号.jpg)
