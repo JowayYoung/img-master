@@ -1,7 +1,7 @@
 const Chalk = require("chalk");
 
 const { QUESTION_TEXT } = require("../i18n");
-const { REGEXP } = require("../util/getting");
+const { MARK_REGEXP } = require("../util/getting");
 
 const QT_GROUP = {
 	choices: QUESTION_TEXT.groupList,
@@ -24,7 +24,7 @@ const QT_MARK_COLOR = {
 	message: QUESTION_TEXT.markColor,
 	name: "markColor",
 	type: "input",
-	validate: val => REGEXP.color.test(val) ? true : Chalk.redBright(QUESTION_TEXT.judgeMarkColor)
+	validate: val => MARK_REGEXP.color.test(val) ? true : Chalk.redBright(QUESTION_TEXT.judgeMarkColor)
 };
 
 const QT_MARK_GRAVITY = {
@@ -40,7 +40,7 @@ const QT_MARK_LEFT = {
 	message: QUESTION_TEXT.markLeft,
 	name: "markLeft",
 	type: "input",
-	validate: val => REGEXP.left.test(val) ? true : Chalk.redBright(QUESTION_TEXT.judgeMarkLeft)
+	validate: val => MARK_REGEXP.left.test(val) ? true : Chalk.redBright(QUESTION_TEXT.judgeMarkLeft)
 };
 
 const QT_MARK_SIZE = {
@@ -48,7 +48,7 @@ const QT_MARK_SIZE = {
 	message: QUESTION_TEXT.markSize,
 	name: "markSize",
 	type: "input",
-	validate: val => REGEXP.size.test(val) ? true : Chalk.redBright(QUESTION_TEXT.judgeMarkSize)
+	validate: val => MARK_REGEXP.size.test(val) ? true : Chalk.redBright(QUESTION_TEXT.judgeMarkSize)
 };
 
 const QT_MARK_TEXT = {
@@ -56,7 +56,7 @@ const QT_MARK_TEXT = {
 	message: QUESTION_TEXT.markText,
 	name: "markText",
 	type: "input",
-	validate: val => REGEXP.text.test(val) ? true : Chalk.redBright(QUESTION_TEXT.judgeMarkText)
+	validate: val => MARK_REGEXP.text.test(val) ? true : Chalk.redBright(QUESTION_TEXT.judgeMarkText)
 };
 
 const QT_MARK_TOP = {
@@ -64,7 +64,7 @@ const QT_MARK_TOP = {
 	message: QUESTION_TEXT.markTop,
 	name: "markTop",
 	type: "input",
-	validate: val => REGEXP.top.test(val) ? true : Chalk.redBright(QUESTION_TEXT.judgeMarkTop)
+	validate: val => MARK_REGEXP.top.test(val) ? true : Chalk.redBright(QUESTION_TEXT.judgeMarkTop)
 };
 
 module.exports = {

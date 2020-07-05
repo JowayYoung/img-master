@@ -4,7 +4,7 @@ const Glob = require("glob");
 const { RandomNum } = require("trample/node");
 
 const { ACTION_TEXT, OPERATION_TEXT } = require("../i18n");
-const { EXTS, OUTPUT_DIR, TINYIMG } = require("./getting");
+const { EXTS, OUTPUT_DIR, TINYIMG_URL } = require("./getting");
 
 function AutoBin(fn, ...rest) {
 	const lib = require(`../lib/${fn}`);
@@ -35,7 +35,7 @@ function RandomHeader() {
 			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
 			"X-Forwarded-For": ip
 		},
-		hostname: TINYIMG[index],
+		hostname: TINYIMG_URL[index],
 		method: "POST",
 		path: "/web/shrink",
 		rejectUnauthorized: false

@@ -5,7 +5,7 @@ const Commander = require("commander");
 
 const { version } = require("../package");
 const { ACTION_TEXT, GLOB_TEXT } = require("../i18n");
-const { TRANSFORM_REGEXP } = require("../util/getting");
+const { TRANSFORM_TEST } = require("../util/getting");
 const { AutoBin } = require("../util/setting");
 
 // 版本和用法
@@ -36,17 +36,17 @@ Commander
 Commander
 	.command("transform")
 	.alias("t")
-	.option("--blur [param]", Chalk.blueBright(ACTION_TEXT.tBlur), TRANSFORM_REGEXP.blur, "")
-	.option("--extract [param]", Chalk.blueBright(ACTION_TEXT.tExtract), TRANSFORM_REGEXP.extract, "")
-	.option("--flip [param]", Chalk.blueBright(ACTION_TEXT.tFlip), TRANSFORM_REGEXP.flip, "")
-	.option("--flop [param]", Chalk.blueBright(ACTION_TEXT.tFlop), TRANSFORM_REGEXP.flop, "")
-	.option("--format [param]", Chalk.blueBright(ACTION_TEXT.tFormat), TRANSFORM_REGEXP.format, "")
-	.option("--grayscale [param]", Chalk.blueBright(ACTION_TEXT.tGrayscale), TRANSFORM_REGEXP.grayscale, "")
-	.option("--negate [param]", Chalk.blueBright(ACTION_TEXT.tNegate), TRANSFORM_REGEXP.negate, "")
-	.option("--normalise [param]", Chalk.blueBright(ACTION_TEXT.tNormalise), TRANSFORM_REGEXP.normalise, "")
-	.option("--resize [param]", Chalk.blueBright(ACTION_TEXT.tResize), TRANSFORM_REGEXP.resize, "")
-	.option("--rotate [param]", Chalk.blueBright(ACTION_TEXT.tRotate), TRANSFORM_REGEXP.rotate, "")
-	.option("--sharpen [param]", Chalk.blueBright(ACTION_TEXT.tSharpen), TRANSFORM_REGEXP.sharpen, "")
+	.option("--blur [param]", Chalk.blueBright(ACTION_TEXT.tBlur), TRANSFORM_TEST.blur, "")
+	.option("--extract [param]", Chalk.blueBright(ACTION_TEXT.tExtract), TRANSFORM_TEST.extract, "")
+	.option("--flip [param]", Chalk.blueBright(ACTION_TEXT.tFlip), TRANSFORM_TEST.flip, "")
+	.option("--flop [param]", Chalk.blueBright(ACTION_TEXT.tFlop), TRANSFORM_TEST.flop, "")
+	.option("--format [param]", Chalk.blueBright(ACTION_TEXT.tFormat), TRANSFORM_TEST.format, "")
+	.option("--grayscale [param]", Chalk.blueBright(ACTION_TEXT.tGrayscale), TRANSFORM_TEST.grayscale, "")
+	.option("--negate [param]", Chalk.blueBright(ACTION_TEXT.tNegate), TRANSFORM_TEST.negate, "")
+	.option("--normalise [param]", Chalk.blueBright(ACTION_TEXT.tNormalise), TRANSFORM_TEST.normalise, "")
+	.option("--resize [param]", Chalk.blueBright(ACTION_TEXT.tResize), TRANSFORM_TEST.resize, "")
+	.option("--rotate [param]", Chalk.blueBright(ACTION_TEXT.tRotate), TRANSFORM_TEST.rotate, "")
+	.option("--sharpen [param]", Chalk.blueBright(ACTION_TEXT.tSharpen), TRANSFORM_TEST.sharpen, "")
 	.description(Chalk.blueBright(ACTION_TEXT.transform))
 	.action((cmd, env) => AutoBin("transform", cmd, env));
 // 帮助

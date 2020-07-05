@@ -33,12 +33,12 @@ const QUESTION_TEXT = {
 		{ name: "按照图像尺寸分组", value: "size" },
 		{ name: `按照图像大小区间分组：${Chalk.blueBright("小于10k为小图，介于10k~100k为中图，大于100k为大图")}`, value: "range" }
 	],
-	judgeMarkColor: "请输入正确的标记水印颜色：HEX、RGB、RGBA",
-	judgeMarkLeft: "请输入正确的标记水印左偏移量：0或正整数",
-	judgeMarkSize: "请输入正确的标记水印大小：正整数",
-	judgeMarkText: "请输入正确的标记水印大小：1到50位数字、英文、中文、空格、下划线或中划线的字符",
-	judgeMarkTop: "请输入正确的标记水印上偏移量：0或正整数",
-	markBlend: "请选择标记混合模式",
+	judgeMarkColor: "水印颜色只能是HEX、RGB、RGBA",
+	judgeMarkLeft: "水印左偏移量只能是0或正整数",
+	judgeMarkSize: "水印大小只能是正整数",
+	judgeMarkText: "水印文本只能是1到50位数字、英文、中文、空格、下划线或中划线的字符",
+	judgeMarkTop: "水印上偏移量只能是0或正整数",
+	markBlend: "请选择水印混合模式",
 	markBlendList: [
 		{ name: "add", value: "add" },
 		{ name: "atop", value: "atop" },
@@ -68,8 +68,8 @@ const QUESTION_TEXT = {
 		{ name: "source", value: "source" },
 		{ name: "xor", value: "xor" }
 	],
-	markColor: "请输入标记水印颜色",
-	markGravity: "请选择标记水印位置",
+	markColor: "请输入水印颜色",
+	markGravity: "请选择水印位置",
 	markGravityList: [
 		{ name: "无", value: "none" },
 		{ name: "中", value: "center" },
@@ -82,10 +82,10 @@ const QUESTION_TEXT = {
 		{ name: "右上", value: "northeast" },
 		{ name: "右下", value: "southeast" }
 	],
-	markLeft: "请输入标记水印左偏移量",
-	markSize: "请输入标记水印大小",
-	markText: "请输入标记水印文本",
-	markTop: "请输入标记水印上偏移量"
+	markLeft: "请输入水印左偏移量",
+	markSize: "请输入水印大小",
+	markText: "请输入水印文本",
+	markTop: "请输入水印上偏移量"
 };
 
 const COMPRESS_TEXT = {
