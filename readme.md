@@ -86,7 +86,7 @@
 
 > 注意事项
 
-- 配置一定要输入完整且正确，格式为`--opt [val]`，不然会报错导致无法执行
+- 配置一定要完整输入且正确，格式为`--opt [val]`，不然会报错导致无法执行
 - 配置参数间相连只能使用英文逗号`,`，不能使用空格
 - 配置详情请参考[sharp-api](https://sharp.pixelplumbing.com/api-constructor)
 
