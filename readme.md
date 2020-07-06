@@ -21,7 +21,7 @@
 
 - 设置**NPM镜像**为淘宝镜像：`npm config set registry https://registry.npm.taobao.org/`
 - 设置**NPM模块内置Node镜像**为淘宝镜像：`npm config set disturl https://npm.taobao.org/mirrors/node/`
-- 设置**Share镜像**为淘宝镜像
+- 设置**Sharp镜像**为淘宝镜像
 	- `npm config set sharp_binary_host https://npm.taobao.org/mirrors/sharp/`
 	- `npm config set sharp_libvips_binary_host https://npm.taobao.org/mirrors/sharp-libvips/`
 - 若曾经安装失败，请执行`npm cache clean -f`强制清理缓存
