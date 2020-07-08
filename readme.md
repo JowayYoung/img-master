@@ -1,7 +1,7 @@
 # Img Master <img src="https://img.shields.io/badge/img--master-多功能无限制的图像批处理工具-66f.svg">
 
 [![author](https://img.shields.io/badge/author-JowayYoung-f66.svg)](https://github.com/JowayYoung/img-master)
-[![version](https://img.shields.io/badge/version-0.0.2-f66.svg)](https://github.com/JowayYoung/img-master)
+[![version](https://img.shields.io/badge/version-0.0.3-f66.svg)](https://github.com/JowayYoung/img-master)
 [![node](https://img.shields.io/badge/node-%3E%3D%2010.0.0-3c9.svg)](https://github.com/JowayYoung/img-master)
 [![npm](https://img.shields.io/badge/npm-%3E%3D%205.6.0-3c9.svg)](https://github.com/JowayYoung/img-master)
 [![test](https://img.shields.io/badge/test-passing-f90.svg)](https://github.com/JowayYoung/img-master)
@@ -15,17 +15,17 @@
 
 `npm i -g img-master`
 
-> 安装准备
+> 安装失败
 
 `img-master`某些功能基于`sharp`，所以在安装过程中可能会失败或报错，请通过以下步骤解围。
 
-- 设置**NPM镜像**为淘宝镜像：`npm config set registry https://registry.npm.taobao.org/`
-- 设置**NPM模块内置Node镜像**为淘宝镜像：`npm config set disturl https://npm.taobao.org/mirrors/node/`
-- 设置**Sharp镜像**为淘宝镜像
+- 切换**NPM镜像**为淘宝镜像：`npm config set registry https://registry.npm.taobao.org/`
+- 切换**NPM模块内置Node镜像**为淘宝镜像：`npm config set disturl https://npm.taobao.org/mirrors/node/`
+- 切换**Sharp镜像**为淘宝镜像
 	- `npm config set sharp_binary_host https://npm.taobao.org/mirrors/sharp/`
 	- `npm config set sharp_libvips_binary_host https://npm.taobao.org/mirrors/sharp-libvips/`
-- 若曾经安装失败，请执行`npm cache clean -f`强制清理缓存
-- 执行`npm i -g img-master`重新安装
+- 强制清理缓存：`npm cache clean -f`(曾经安装失败才执行)
+- 重新执行安装命令：`npm i -g img-master`
 
 ```!
 若是多账户电脑(公司环境)，请切换到管理员账号下执行npm i -g img-master重新安装
