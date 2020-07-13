@@ -60,10 +60,11 @@
 		"figures": "3.2.0",
 		"glob": "7.1.6",
 		"image-size": "0.8.3",
-		"inquirer": "7.3.0",
+		"inquirer": "7.3.1",
+		"ora": "4.0.4",
 		"sharp": "0.25.4",
 		"text-to-svg": "3.1.5",
-		"trample": "0.1.0"
+		"trample": "0.2.2"
 	},
 	"devDependencies": {},
 	"engines": {

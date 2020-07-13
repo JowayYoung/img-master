@@ -89,21 +89,22 @@ const QUESTION_TEXT = {
 };
 
 const COMPRESS_TEXT = {
-	compressCompleted: (path, obj) => `${Figures.tick} 压缩[${Chalk.yellowBright(path)}]完成：原始大小${Chalk.redBright(ByteSize(obj.input.size))}，压缩大小${Chalk.greenBright(ByteSize(obj.output.size))}，优化比例${Chalk.blueBright(RoundNum(1 - obj.output.ratio, 2, true))}`,
-	compressFailed: (path, msg) => `${Figures.cross} 压缩[${Chalk.yellowBright(path)}]失败：${Chalk.redBright(msg)}`,
-	uploadFailed: (path, msg) => `${Figures.cross} 上传[${Chalk.yellowBright(path)}]失败：${Chalk.redBright(msg)}`,
-	uploadLimited: path => `${Figures.cross} 上传[${Chalk.yellowBright(path)}]失败：${Chalk.redBright("请确保图像大小在5M以下")}`
+	completed: (path, obj) => `${Figures.tick} 压缩[${Chalk.yellowBright(path)}]完成：原始大小${Chalk.redBright(ByteSize(obj.input.size))}，压缩大小${Chalk.greenBright(ByteSize(obj.output.size))}，优化比例${Chalk.blueBright(RoundNum(1 - obj.output.ratio, 2, true))}`,
+	failed: (path, msg) => `${Figures.cross} 压缩[${Chalk.yellowBright(path)}]失败：${Chalk.redBright(msg)}`,
+	limited: path => `${Figures.cross} 上传[${Chalk.yellowBright(path)}]失败：${Chalk.redBright("请确保图像大小在5M以下")}`,
+	loading: `${Chalk.green("正在压缩图像...")}`
 };
 
 const GROUP_TEXT = {
-	grouprangeCompleted: `${Figures.tick} 按照图像${Chalk.greenBright("大小区间")}分组完成`,
-	groupsizeCompleted: `${Figures.tick} 按照图像${Chalk.greenBright("尺寸")}分组完成`,
-	grouptypeCompleted: `${Figures.tick} 按照图像${Chalk.greenBright("类型")}分组完成`
+	rangeCompleted: `${Figures.tick} 按照图像${Chalk.greenBright("大小区间")}分组完成`,
+	sizeCompleted: `${Figures.tick} 按照图像${Chalk.greenBright("尺寸")}分组完成`,
+	typeCompleted: `${Figures.tick} 按照图像${Chalk.greenBright("类型")}分组完成`
 };
 
 const MARK_TEXT = {
-	markCompleted: (path, text) => `${Figures.tick} 标记[${Chalk.yellowBright(path)}]完成：添加水印${Chalk.greenBright(text)}`,
-	markFailed: (path, msg) => `${Figures.cross} 标记[${Chalk.yellowBright(path)}]失败：${Chalk.redBright(msg)}`
+	completed: (path, text) => `${Figures.tick} 标记[${Chalk.yellowBright(path)}]完成：添加水印${Chalk.greenBright(text)}`,
+	failed: (path, msg) => `${Figures.cross} 标记[${Chalk.yellowBright(path)}]失败：${Chalk.redBright(msg)}`,
+	loading: `${Chalk.green("正在标记图像...")}`
 };
 
 const OPERATION_TEXT = {
@@ -111,9 +112,10 @@ const OPERATION_TEXT = {
 };
 
 const TRANSFORM_TEXT = {
-	transformCompleted: (path, obj) => `${Figures.tick} 变换[${Chalk.yellowBright(path)}]完成：转换尺寸${Chalk.greenBright(obj.width)}x${Chalk.greenBright(obj.height)}，转换大小${Chalk.greenBright(ByteSize(obj.size))}，转换类型${Chalk.greenBright(obj.format === "jpeg" ? "JPG" : obj.format.toUpperCase())}`,
-	transformFailed: (path, msg) => `${Figures.cross} 变换[${Chalk.yellowBright(path)}]失败：${Chalk.redBright(msg)}`,
-	transformEmpty: `${Figures.cross} 变换图像失败：${Chalk.redBright("请检查配置是否未输入或输入错误")}`
+	completed: (path, obj) => `${Figures.tick} 变换[${Chalk.yellowBright(path)}]完成：转换尺寸${Chalk.greenBright(obj.width)}x${Chalk.greenBright(obj.height)}，转换大小${Chalk.greenBright(ByteSize(obj.size))}，转换类型${Chalk.greenBright(obj.format === "jpeg" ? "JPG" : obj.format.toUpperCase())}`,
+	empty: `${Figures.cross} 变换图像失败：${Chalk.redBright("请检查配置是否未输入或输入错误")}`,
+	failed: (path, msg) => `${Figures.cross} 变换[${Chalk.yellowBright(path)}]失败：${Chalk.redBright(msg)}`,
+	loading: `${Chalk.green("正在变换图像...")}`
 };
 
 module.exports = {
