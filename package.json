@@ -1,6 +1,6 @@
 {
 	"name": "img-master",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "An image batch processing tool with multifunctional and unlimited",
 	"keywords": [
 		"img-master",
@@ -15,9 +15,9 @@
 		"group",
 		"mark",
 		"transform",
-		"range",
 		"size",
 		"type",
+		"volume",
 		"watermark",
 		"blur",
 		"extract",
@@ -60,11 +60,11 @@
 		"figures": "3.2.0",
 		"glob": "7.1.6",
 		"image-size": "0.8.3",
-		"inquirer": "7.3.1",
+		"inquirer": "7.3.2",
 		"ora": "4.0.4",
 		"sharp": "0.25.4",
 		"text-to-svg": "3.1.5",
-		"trample": "0.2.2"
+		"trample": "0.2.3"
 	},
 	"devDependencies": {},
 	"engines": {

@@ -25,11 +25,6 @@ const OUTPUT_DIR = {
 	transform: "#transformed-dist#"
 };
 
-const SIZE_RANGE = {
-	big: 1024 * 100,
-	small: 1024 * 10
-};
-
 const TINYIMG_URL = [
 	"tinyjpg.com",
 	"tinypng.com"
@@ -113,14 +108,19 @@ const TRANSFORM_TEST = {
 	}
 };
 
+const VOLUME_RANGE = {
+	big: 1024 * 100,
+	small: 1024 * 10
+};
+
 module.exports = {
 	EXTS,
 	MARK_REGEXP,
 	MAX_SIZE,
 	OUTPUT_DIR,
-	SIZE_RANGE,
 	TINYIMG_URL,
 	TRANSFORM_OPTS,
 	TRANSFORM_REGEXP,
-	TRANSFORM_TEST
+	TRANSFORM_TEST,
+	VOLUME_RANGE
 };

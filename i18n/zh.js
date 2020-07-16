@@ -13,29 +13,29 @@ const ACTION_TEXT = {
 	group: "分组图像",
 	mark: "标记图像",
 	transform: "变换图像",
-	tBlur: "模糊",
-	tExtract: "裁剪",
-	tFlip: "平翻",
-	tFlop: "对翻",
-	tFormat: "格式",
-	tGrayscale: "灰度",
-	tNegate: "负片",
-	tNormalise: "对比",
-	tResize: "调整",
-	tRotate: "旋转",
-	tSharpen: "锐化"
+	transformBlur: "模糊",
+	transformExtract: "裁剪",
+	transformFlip: "平翻",
+	transformFlop: "对翻",
+	transformFormat: "格式",
+	transformGrayscale: "灰度",
+	transformNegate: "负片",
+	transformNormalise: "对比",
+	transformResize: "调整",
+	transformRotate: "旋转",
+	transformSharpen: "锐化"
 };
 
 const QUESTION_TEXT = {
-	gruop: "请选择图像分组依据",
+	group: "请选择图像分组依据",
 	groupList: [
-		{ name: "按照图像类型分组", value: "type" },
 		{ name: "按照图像尺寸分组", value: "size" },
-		{ name: `按照图像大小区间分组：${Chalk.blueBright("小于10k为小图，介于10k~100k为中图，大于100k为大图")}`, value: "range" }
+		{ name: "按照图像类型分组", value: "type" },
+		{ name: `按照图像体积分组：${Chalk.blueBright("小于10k为小图，介于10k~100k为中图，大于100k为大图")}`, value: "volume" }
 	],
 	judgeMarkColor: "水印颜色只能是HEX、RGB、RGBA",
 	judgeMarkLeft: "水印左偏移量只能是0或正整数",
-	judgeMarkSize: "水印大小只能是正整数",
+	judgeMarkSize: "水印尺寸只能是正整数",
 	judgeMarkText: "水印文本只能是1到50位数字、英文、中文、空格、下划线或中划线的字符",
 	judgeMarkTop: "水印上偏移量只能是0或正整数",
 	markBlend: "请选择水印混合模式",
@@ -83,28 +83,28 @@ const QUESTION_TEXT = {
 		{ name: "右下", value: "southeast" }
 	],
 	markLeft: "请输入水印左偏移量",
-	markSize: "请输入水印大小",
+	markSize: "请输入水印尺寸",
 	markText: "请输入水印文本",
 	markTop: "请输入水印上偏移量"
 };
 
 const COMPRESS_TEXT = {
-	completed: (path, obj) => `${Figures.tick} 压缩[${Chalk.yellowBright(path)}]完成：原始大小${Chalk.redBright(ByteSize(obj.input.size))}，压缩大小${Chalk.greenBright(ByteSize(obj.output.size))}，优化比例${Chalk.blueBright(RoundNum(1 - obj.output.ratio, 2, true))}`,
+	completed: (path, obj) => `${Figures.tick} 压缩[${Chalk.yellowBright(path)}]完成：原始体积${Chalk.redBright(ByteSize(obj.input.size))}，压缩体积${Chalk.greenBright(ByteSize(obj.output.size))}，优化比例${Chalk.blueBright(RoundNum(1 - obj.output.ratio, 2, true))}`,
 	failed: (path, msg) => `${Figures.cross} 压缩[${Chalk.yellowBright(path)}]失败：${Chalk.redBright(msg)}`,
-	limited: path => `${Figures.cross} 上传[${Chalk.yellowBright(path)}]失败：${Chalk.redBright("请确保图像大小在5M以下")}`,
-	loading: `${Chalk.green("正在压缩图像...")}`
+	limited: path => `${Figures.cross} 上传[${Chalk.yellowBright(path)}]失败：${Chalk.redBright("请确保图像体积在5M以下")}`,
+	loading: `${Chalk.green("正在压缩图像......")}`
 };
 
 const GROUP_TEXT = {
-	rangeCompleted: `${Figures.tick} 按照图像${Chalk.greenBright("大小区间")}分组完成`,
 	sizeCompleted: `${Figures.tick} 按照图像${Chalk.greenBright("尺寸")}分组完成`,
-	typeCompleted: `${Figures.tick} 按照图像${Chalk.greenBright("类型")}分组完成`
+	typeCompleted: `${Figures.tick} 按照图像${Chalk.greenBright("类型")}分组完成`,
+	volumeCompleted: `${Figures.tick} 按照图像${Chalk.greenBright("体积")}分组完成`
 };
 
 const MARK_TEXT = {
 	completed: (path, text) => `${Figures.tick} 标记[${Chalk.yellowBright(path)}]完成：添加水印${Chalk.greenBright(text)}`,
 	failed: (path, msg) => `${Figures.cross} 标记[${Chalk.yellowBright(path)}]失败：${Chalk.redBright(msg)}`,
-	loading: `${Chalk.green("正在标记图像...")}`
+	loading: `${Chalk.green("正在标记图像......")}`
 };
 
 const OPERATION_TEXT = {
@@ -112,10 +112,10 @@ const OPERATION_TEXT = {
 };
 
 const TRANSFORM_TEXT = {
-	completed: (path, obj) => `${Figures.tick} 变换[${Chalk.yellowBright(path)}]完成：转换尺寸${Chalk.greenBright(obj.width)}x${Chalk.greenBright(obj.height)}，转换大小${Chalk.greenBright(ByteSize(obj.size))}，转换类型${Chalk.greenBright(obj.format === "jpeg" ? "JPG" : obj.format.toUpperCase())}`,
+	completed: (path, obj) => `${Figures.tick} 变换[${Chalk.yellowBright(path)}]完成：变换尺寸${Chalk.greenBright(obj.width)}x${Chalk.greenBright(obj.height)}，变换体积${Chalk.greenBright(ByteSize(obj.size))}，变换类型${Chalk.greenBright(obj.format === "jpeg" ? "JPG" : obj.format.toUpperCase())}`,
 	empty: `${Figures.cross} 变换图像失败：${Chalk.redBright("请检查配置是否未输入或输入错误")}`,
 	failed: (path, msg) => `${Figures.cross} 变换[${Chalk.yellowBright(path)}]失败：${Chalk.redBright(msg)}`,
-	loading: `${Chalk.green("正在变换图像...")}`
+	loading: `${Chalk.green("正在变换图像......")}`
 };
 
 module.exports = {

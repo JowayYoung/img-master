@@ -1,7 +1,7 @@
 # Img Master <img src="https://img.shields.io/badge/img--master-多功能无限制的图像批处理工具-66f.svg">
 
 [![author](https://img.shields.io/badge/author-JowayYoung-f66.svg)](https://github.com/JowayYoung/img-master)
-[![version](https://img.shields.io/badge/version-0.0.3-f66.svg)](https://github.com/JowayYoung/img-master)
+[![version](https://img.shields.io/badge/version-0.0.4-f66.svg)](https://github.com/JowayYoung/img-master)
 [![node](https://img.shields.io/badge/node-%3E%3D%2010.0.0-3c9.svg)](https://github.com/JowayYoung/img-master)
 [![npm](https://img.shields.io/badge/npm-%3E%3D%205.6.0-3c9.svg)](https://github.com/JowayYoung/img-master)
 [![test](https://img.shields.io/badge/test-passing-f90.svg)](https://github.com/JowayYoung/img-master)
@@ -38,7 +38,7 @@
 命令|缩写|功能|描述
 -|-|-|-
 `img-master compress`|`img-master c`|压缩图像|基于`TinyJPG`或`TinyPNG`进行压缩
-`img-master group`|`img-master g`|分组图像|按照图像`尺寸`、`类型`或`大小范围`进行分组
+`img-master group`|`img-master g`|分组图像|按照图像`尺寸`、`类型`或`体积`进行分组
 `img-master mark`|`img-master m`|标记图像|基于`Sharp`进行标记，提供交互式问答调用
 `img-master transform`|`img-master t`|变换图像|基于`Sharp`进行变换，提供多配置链式调用
 
@@ -76,8 +76,8 @@
 	- `cover`：裁剪以适应在指定尺寸中
 	- `contain`：嵌入在指定尺寸中
 	- `fill`：忽略宽高比，拉伸以填满在指定尺寸中
-	- `inside`：保留宽高比，将大小调整到尽可能大，同时确保其尺寸小于或等于指定尺寸
-	- `outside`：保留宽高比，将大小调整到尽可能小，同时确保其尺寸大于或等于指定尺寸
+	- `inside`：保留宽高比，将尺寸调整到尽可能大，同时确保其尺寸小于或等于指定尺寸
+	- `outside`：保留宽高比，将尺寸调整到尽可能小，同时确保其尺寸大于或等于指定尺寸
 - **bgcolor**：背景色
 	- `transparent`：透明，需配合`--format png`使用
 	- `HEX`：16进制色值，可选`#xyz`或`#uvwxyz`

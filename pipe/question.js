@@ -6,7 +6,7 @@ const { MARK_REGEXP } = require("../util/getting");
 const QT_GROUP = {
 	choices: QUESTION_TEXT.groupList,
 	default: "type",
-	message: QUESTION_TEXT.gruop,
+	message: QUESTION_TEXT.group,
 	name: "group",
 	type: "list"
 };
