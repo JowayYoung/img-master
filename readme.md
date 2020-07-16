@@ -1,7 +1,7 @@
 # Img Master <img src="https://img.shields.io/badge/img--master-多功能无限制的图像批处理工具-66f.svg">
 
 [![author](https://img.shields.io/badge/author-JowayYoung-f66.svg)](https://github.com/JowayYoung/img-master)
-[![version](https://img.shields.io/badge/version-0.0.4-f66.svg)](https://github.com/JowayYoung/img-master)
+[![version](https://img.shields.io/badge/version-0.0.5-f66.svg)](https://github.com/JowayYoung/img-master)
 [![node](https://img.shields.io/badge/node-%3E%3D%2010.0.0-3c9.svg)](https://github.com/JowayYoung/img-master)
 [![npm](https://img.shields.io/badge/npm-%3E%3D%205.6.0-3c9.svg)](https://github.com/JowayYoung/img-master)
 [![test](https://img.shields.io/badge/test-passing-f90.svg)](https://github.com/JowayYoung/img-master)

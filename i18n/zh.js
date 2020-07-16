@@ -92,7 +92,7 @@ const COMPRESS_TEXT = {
 	completed: (path, obj) => `${Figures.tick} 压缩[${Chalk.yellowBright(path)}]完成：原始体积${Chalk.redBright(ByteSize(obj.input.size))}，压缩体积${Chalk.greenBright(ByteSize(obj.output.size))}，优化比例${Chalk.blueBright(RoundNum(1 - obj.output.ratio, 2, true))}`,
 	failed: (path, msg) => `${Figures.cross} 压缩[${Chalk.yellowBright(path)}]失败：${Chalk.redBright(msg)}`,
 	limited: path => `${Figures.cross} 上传[${Chalk.yellowBright(path)}]失败：${Chalk.redBright("请确保图像体积在5M以下")}`,
-	loading: `${Chalk.green("正在压缩图像......")}`
+	loading: `${Chalk.green("图像正在压缩......")}`
 };
 
 const GROUP_TEXT = {
@@ -104,7 +104,7 @@ const GROUP_TEXT = {
 const MARK_TEXT = {
 	completed: (path, text) => `${Figures.tick} 标记[${Chalk.yellowBright(path)}]完成：添加水印${Chalk.greenBright(text)}`,
 	failed: (path, msg) => `${Figures.cross} 标记[${Chalk.yellowBright(path)}]失败：${Chalk.redBright(msg)}`,
-	loading: `${Chalk.green("正在标记图像......")}`
+	loading: `${Chalk.green("图像正在标记......")}`
 };
 
 const OPERATION_TEXT = {
@@ -115,7 +115,7 @@ const TRANSFORM_TEXT = {
 	completed: (path, obj) => `${Figures.tick} 变换[${Chalk.yellowBright(path)}]完成：变换尺寸${Chalk.greenBright(obj.width)}x${Chalk.greenBright(obj.height)}，变换体积${Chalk.greenBright(ByteSize(obj.size))}，变换类型${Chalk.greenBright(obj.format === "jpeg" ? "JPG" : obj.format.toUpperCase())}`,
 	empty: `${Figures.cross} 变换图像失败：${Chalk.redBright("请检查配置是否未输入或输入错误")}`,
 	failed: (path, msg) => `${Figures.cross} 变换[${Chalk.yellowBright(path)}]失败：${Chalk.redBright(msg)}`,
-	loading: `${Chalk.green("正在变换图像......")}`
+	loading: `${Chalk.green("图像正在变换......")}`
 };
 
 module.exports = {
